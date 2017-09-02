@@ -1,4 +1,4 @@
-/*~ SCRIPT BY SHINO / MICKEY / EMIKO ~*/
+/* SCRIPT BY SHINO */
 /* Usable Sysbols ◎●←↑→↓↖↗↘↙ */
 
 const format = require('./format.js');
