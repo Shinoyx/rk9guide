@@ -3,6 +3,8 @@
 SCRIPT BY SHINOYX - 
 For private use only. Credits to teralove and soler91 for their VS guides
 
+Please report any issues to me either here or on discord :)
+
 # COMMANDS 
 Only usable in the RK9 Map. Using of commands outside map will return undefine command.
 - !rk9 to toggle module (DEFAULT: ON)
