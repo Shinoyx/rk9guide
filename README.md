@@ -46,3 +46,9 @@ V1.09
 
 # Future updates
 - Finish mapping hardmode skills 
+
+# Screenshots
+![Alt text](https://imgur.com/OGIoUXL)
+![Alt text](https://imgur.com/J8931ng)
+![Alt text](https://imgur.com/4TghdMr)
+![Alt text](https://imgur.com/exXYMjP)
