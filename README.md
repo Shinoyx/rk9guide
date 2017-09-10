@@ -3,6 +3,9 @@
 SCRIPT BY SHINOYX - For TERA
 For private use only. Credits to teralove and soler91 for their VS guides
 
+Call out attacks from RK-9 Bosses all 3 of them including both NORMAL MODE & HARD MODE
+*Script automatically detects bosses and which dungeon hard or normal.
+
 Please report any issues to me either here or on discord :)
 
 # Commands 
