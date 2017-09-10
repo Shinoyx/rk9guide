@@ -5,7 +5,7 @@ For private use only. Credits to teralove and soler91 for their VS guides
 
 Please report any issues to me either here or on discord :)
 
-# COMMANDS 
+# Commands 
 Only usable in the RK9 Map. Using of commands outside map will return undefine command.
 - !rk9 to toggle module (DEFAULT: ON)
 - !party to toggle party notice (DEFAULT: SELF ONLY)
@@ -48,7 +48,7 @@ V1.09
 - Finish mapping hardmode skills 
 
 # Screenshots
-![Alt text](https://imgur.com/OGIoUXL)
-![Alt text](https://imgur.com/J8931ng)
-![Alt text](https://imgur.com/4TghdMr)
-![Alt text](https://imgur.com/exXYMjP)
+![Screenshot](1.png)
+![Screenshot](2.png)
+![Screenshot](3.png)
+![Screenshot](4.png)
