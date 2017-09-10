@@ -68,32 +68,37 @@ const FirstBossActionsHM = {
 	1202128157: {msg: 'ROCKET!'},
 	1202128155: {msg: 'PULL'},
 	1202128053: {msg: 'Wind'},
-	//Pizza - Missing 3 right back / left back / left front 
-	1202128167: {msg: 'Safe front right ↑↗'}, //correct
+	1202128167: {msg: 'Safe front right ↑↗'},
 	1202128163: {msg: 'Safe front right ↑↗'},
 	1202129167: {msg: 'Safe front right ↑↗'},
 	1202129163: {msg: 'Safe front right ↑↗'},
-	1202128174: {msg: 'Safe front left ↑↖'}, //correct
-	1202128162: {msg: 'Safe front left ↑↖'}, //correct
+	1202128174: {msg: 'Safe front left ↑↖'},
+	1202128162: {msg: 'Safe front left ↑↖'},
 	1202129174: {msg: 'Safe front left ↑↖'},
 	1202129162: {msg: 'Safe front left ↑↖'},
 	1202128172: {msg: 'Safe right back →↘'},
-	1202129172: {msg: 'Safe right back →↘'}, //correct
+	1202129172: {msg: 'Safe right back →↘'},
+	1202128160: {msg: 'Safe right back →↘'},
+	1202129160: {msg: 'Safe right back →↘'}, 
 	1202128159: {msg: 'Safe right front →↗'},
-	1202129159: {msg: 'Safe right front →↗'}, //correct
-	1202128171: {msg: 'Safe right front →↗'}, //correct
+	1202129159: {msg: 'Safe right front →↗'},
+	1202128171: {msg: 'Safe right front →↗'},
 	1202129171: {msg: 'Safe right front →↗'},
 	1202128173: {msg: 'Safe left back ←↙'},
-	1202129173: {msg: 'Safe left back ←↙'}, //correct
+	1202129173: {msg: 'Safe left back ←↙'},
+	1202128165: {msg: 'Safe left back ←↙'},
+	1202129165: {msg: 'Safe left back ←↙'},
 	1202128166: {msg: 'Safe left front ←↖'},
 	1202129166: {msg: 'Safe left front ←↖'},
+	1202128170: {msg: 'Safe left front'},
+	1202129170: {msg: 'Safe left front'},
 	1202128169: {msg: 'Safe back left ↓↙'},
 	1202129169: {msg: 'Safe back left ↓↙'},
-	1202128161: {msg: 'Safe back left ↓↙'}, //correct
+	1202128161: {msg: 'Safe back left ↓↙'},
 	1202129161: {msg: 'Safe back left ↓↙'},
 	1202128164: {msg: 'Safe back right ↓↘'},
 	1202129164: {msg: 'Safe back right ↓↘'},
-	1202128168: {msg: 'Safe back right ↓↘'}, //correct
+	1202128168: {msg: 'Safe back right ↓↘'},
 	1202129168: {msg: 'Safe back right ↓↘'},	
 };
 
@@ -574,58 +579,70 @@ module.exports = function rk9guide(dispatch) {
 		} else if (event.stage === 1) {
 			if(whichmode === 2 && whichboss === 1) {
 					if(event.skill === 1202128167) { //Safe front right
-						Spawnitem(559, 9000, 338,330);
+						Spawnitem(559, 9000, 338,100);
 					} else if (event.skill === 1202128163) { //Safe front right														
-						Spawnitem(559, 9000, 338,330);
+						Spawnitem(559, 9000, 338,100);
 					} else if (event.skill === 1202129167) { //Safe front right
-						Spawnitem(559, 9000, 338,330);
+						Spawnitem(559, 9000, 338,100);
 					} else if (event.skill === 1202129163) { //Safe front right
-						Spawnitem(559, 9000, 338,330);
+						Spawnitem(559, 9000, 338,100);
 					} else if (event.skill === 1202128174) { //Safe front left
-						Spawnitem(559, 9000, 23,330);
+						Spawnitem(559, 9000, 23,100);
 					} else if (event.skill === 1202128162) { //Safe front left
-						Spawnitem(559, 9000, 23,330);
+						Spawnitem(559, 9000, 23,100);
 					} else if (event.skill === 1202129174) { //Safe front left
-						Spawnitem(559, 9000, 23,330);
+						Spawnitem(559, 9000, 23,100);
 					} else if (event.skill === 1202129162) { //Safe front left
-						Spawnitem(559, 9000, 23,330);
+						Spawnitem(559, 9000, 23,100);
 					} else if (event.skill === 1202128172) { //Safe right back
-						Spawnitem(559, 9000, 248,330);
+						Spawnitem(559, 9000, 248,100);
 					} else if (event.skill === 1202129172) { //Safe right back
-						Spawnitem(559, 9000, 248,330);
+						Spawnitem(559, 9000, 248,100);
+					} else if (event.skill === 1202128160) { //Safe right back
+						Spawnitem(559, 9000, 248,100);
+					} else if (event.skill === 1202129160) { //Safe right back
+						Spawnitem(559, 9000, 248,100);
 					} else if (event.skill === 1202128159) { //Safe right front
-						Spawnitem(559, 9000, 293,330);
+						Spawnitem(559, 9000, 293,100);
 					} else if (event.skill === 1202129159) { //Safe right front
-						Spawnitem(559, 9000, 293,330);
+						Spawnitem(559, 9000, 293,100);
 					} else if (event.skill === 1202128171) { //Safe right front
-						Spawnitem(559, 9000, 293,330);
+						Spawnitem(559, 9000, 293,100);
 					} else if (event.skill === 1202129171) { //Safe right front
-						Spawnitem(559, 9000, 293,330);
+						Spawnitem(559, 9000, 293,100);
 					} else if (event.skill === 1202128173) { //Safe left back
-						Spawnitem(559, 9000, 113,330);
+						Spawnitem(559, 9000, 113,100);
 					} else if (event.skill === 1202129173) { //Safe left back
-						Spawnitem(559, 9000, 113,330);
+						Spawnitem(559, 9000, 113,100);
+					} else if (event.skill === 1202128165) { //Safe left back
+						Spawnitem(559, 9000, 113,100);
+					} else if (event.skill === 1202129165) { //Safe left back
+						Spawnitem(559, 9000, 113,100);
 					} else if (event.skill === 1202128166) { //Safe left front
-						Spawnitem(559, 9000, 68,330);
+						Spawnitem(559, 9000, 68,100);
 					} else if (event.skill === 1202129166) { //Safe left front
-						Spawnitem(559, 9000, 68,330);
+						Spawnitem(559, 9000, 68,100);	
+					} else if (event.skill === 1202128170) { //Safe left front
+						Spawnitem(559, 9000, 68,100);
+					} else if (event.skill === 1202129170) { //Safe left front
+						Spawnitem(559, 9000, 68,100);	
 					} else if (event.skill === 1202128169) { //Safe back left
-						Spawnitem(559, 9000, 158,330);
+						Spawnitem(559, 9000, 158,100);
 					} else if (event.skill === 1202129169) { //Safe back left
-						Spawnitem(559, 9000, 158,330);
+						Spawnitem(559, 9000, 158,100);
 					} else if (event.skill === 1202128161) { //Safe back left
-						Spawnitem(559, 9000, 158,330);
+						Spawnitem(559, 9000, 158,100);
 					} else if (event.skill === 1202129161) { //Safe back left
-						Spawnitem(559, 9000, 158,330);
+						Spawnitem(559, 9000, 158,100);
 					} else if (event.skill === 1202128164) { //Safe back right
-						Spawnitem(559, 9000, 203,330);
+						Spawnitem(559, 9000, 203,100);
 					} else if (event.skill === 1202129164) { //Safe back right
-						Spawnitem(559, 9000, 203,330);
+						Spawnitem(559, 9000, 203,100);
 					} else if (event.skill === 1202128168) { //Safe back right
-						Spawnitem(559, 9000, 203,330);
+						Spawnitem(559, 9000, 203,100);
 					} else if (event.skill === 1202129168) { //Safe back right
-						Spawnitem(559, 9000, 203,330);
-					} 
+						Spawnitem(559, 9000, 203,100);
+					}  
 			}
 		}
 		}
@@ -635,7 +652,7 @@ module.exports = function rk9guide(dispatch) {
 	 function sendMessage(msg) {
 			if (sendToParty) {
 			dispatch.toServer('C_CHAT', 1, {
-				channel: 21, //21 = p-notice, 1 = party
+				channel: 21, //21 = p-notice, 1 = party, 2 = guild
 				message: msg
 			});
 		} else {
