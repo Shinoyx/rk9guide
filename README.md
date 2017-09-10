@@ -21,9 +21,7 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
 - !debug FOR DEBUGGING PURPOSES
 
 # Known issues
-- First boss hardmode pizza un-finished (Left 3 skills probably)
-- Have yet to test first boss hardmode flower spawns
-- Last boss hardmode - extreme mode (Unfinished)
+- Have yet to test last boss hardmode call outs
 
 # Patch Notes
 V1.00
