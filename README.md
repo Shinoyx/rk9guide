@@ -1,4 +1,4 @@
-# rk9guide
+# RK9-Guide
 
 SCRIPT BY SHINOYX - For TERA
 For private use only. Credits to teralove and soler91 for their VS guides
