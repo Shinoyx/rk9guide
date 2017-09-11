@@ -21,7 +21,7 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
 - !debug FOR DEBUGGING PURPOSES
 
 # Known issues
-- Have yet to test last boss hardmode call outs
+- Have yet to map out last boss hardmode - extreme version call outs
 
 # Patch Notes
 V1.00
@@ -45,6 +45,8 @@ V1.09
 - Edit code to use Pinkie's command
 - Deleted format.js due to usage of command
 - Edit and shorten code length due to inefficient spawn item
+
+
 
 # Future updates
 - Finish mapping hardmode skills 
