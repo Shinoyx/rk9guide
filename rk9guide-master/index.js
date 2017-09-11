@@ -544,6 +544,24 @@ module.exports = function rk9guide(dispatch) {
 						Spawnitem(556, 3000, 350, 200);
 					}
 					if(event.skill === 1202128153) {
+						Spawnitem(603, 7000, 20, 300);
+						Spawnitem(603, 7000, 40, 300);
+						Spawnitem(603, 7000, 60, 300);
+						Spawnitem(603, 7000, 80, 300);
+						Spawnitem(603, 7000, 100, 300);
+						Spawnitem(603, 7000, 120, 300);
+						Spawnitem(603, 7000, 140, 300);
+						Spawnitem(603, 7000, 160, 300);
+						Spawnitem(603, 7000, 180, 300);
+						Spawnitem(603, 7000, 200, 300);
+						Spawnitem(603, 7000, 220, 300);
+						Spawnitem(603, 7000, 240, 300);
+						Spawnitem(603, 7000, 260, 300);
+						Spawnitem(603, 7000, 280, 300);
+						Spawnitem(603, 7000, 300, 300);
+						Spawnitem(603, 7000, 320, 300);
+						Spawnitem(603, 7000, 340, 300);
+						Spawnitem(603, 7000, 360, 300);
 						setTimeout(function(){
 							sendMessage(firstskill + ' + ' + secondskill);
 							if(isInv === 0) {
