@@ -245,7 +245,7 @@ module.exports = function rk9guide(dispatch) {
 	
 	command.add('info', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message(mode + '<br> Boss notice: ' + enabled + '<br> Party Notice: ' + sendToParty + '<br> Tank Mode: ' + isTank + '<br>');
+		command.message(mode + '<br> Boss notice: ' + enabled + '<br> Party Notice: ' + sendToParty + '<br> Lastboss to party notice: ' + lastbosstoparty + '<br> Item helper: ' + itemhelper + '<br> Tank Mode: ' + isTank + '<br>');
 	});
 	
 	command.add('help', () => {
@@ -369,21 +369,21 @@ module.exports = function rk9guide(dispatch) {
 				if(dungeonmsg === 935301) {
 					firstskill = 'IN';
 					tempskill = 'IN';
-					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
 					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '근' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
 				} else if(dungeonmsg === 935302) {
 					firstskill = 'OUT';
 					tempskill = 'OUT';
-					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
 					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '원' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
 				} else if(dungeonmsg === 935303) {
 					firstskill = 'WAVE';
 					tempskill = 'WAVE';
-					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
 					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '전' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
@@ -392,21 +392,21 @@ module.exports = function rk9guide(dispatch) {
 				if(dungeonmsg === 935301) {
 					secondskill = 'IN';
 					tempskill = 'IN';
-					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
 					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '근' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
 				} else if(dungeonmsg === 935302) {
 					secondskill = 'OUT';
 					tempskill = 'OUT';
-					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
 					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '원' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
 				} else if(dungeonmsg === 935303) {
 					secondskill = 'WAVE';
 					tempskill = 'WAVE';
-					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
 					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '전' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
@@ -437,7 +437,7 @@ module.exports = function rk9guide(dispatch) {
 						{
 							setTimeout(function(){
 							sendMessage('JUMP!');
-						}, 12000);
+						}, 12000); }
 				} else if (whichboss === 2) {
 						if (SecondBossActions[event.skill]) {
 							sendMessage(SecondBossActions[event.skill].msg);
@@ -473,7 +473,7 @@ module.exports = function rk9guide(dispatch) {
 							Spawnitem(556, 3000, 350, 200);
 						}
 						}
-				} else return;
+			} else return;
 		} else if (whichmode === 2) { //HARD MODE
 			if(whichboss === 1) {
 					if (FirstBossActionsHM[event.skill]) {
@@ -489,7 +489,7 @@ module.exports = function rk9guide(dispatch) {
 					{
 					setTimeout(function(){
 						sendMessage('JUMP!');
-					}, 12000);
+					}, 12000); }
 			} else if (whichboss === 2) {
 					if (SecondBossActionsHM[event.skill]) {
 						sendMessage(SecondBossActionsHM[event.skill].msg);
@@ -569,77 +569,75 @@ module.exports = function rk9guide(dispatch) {
 		} else if (event.stage === 1) {
 			if(whichmode === 2 && whichboss === 1 && itemhelper) {
 					if(event.skill === 1202128167) { //Safe front right
-						Spawnitem(559, 9000, 338,100);
+						Spawnitem(559, 9000, 338,120);
 					} else if (event.skill === 1202128163) { //Safe front right														
-						Spawnitem(559, 9000, 338,100);
+						Spawnitem(559, 9000, 338,120);
 					} else if (event.skill === 1202129167) { //Safe front right
-						Spawnitem(559, 9000, 338,100);
+						Spawnitem(559, 9000, 338,120);
 					} else if (event.skill === 1202129163) { //Safe front right
-						Spawnitem(559, 9000, 338,100);
+						Spawnitem(559, 9000, 338,120);
 					} else if (event.skill === 1202128174) { //Safe front left
-						Spawnitem(559, 9000, 23,100);
+						Spawnitem(559, 9000, 23,120);
 					} else if (event.skill === 1202128162) { //Safe front left
-						Spawnitem(559, 9000, 23,100);
+						Spawnitem(559, 9000, 23,120);
 					} else if (event.skill === 1202129174) { //Safe front left
-						Spawnitem(559, 9000, 23,100);
+						Spawnitem(559, 9000, 23,120);
 					} else if (event.skill === 1202129162) { //Safe front left
-						Spawnitem(559, 9000, 23,100);
+						Spawnitem(559, 9000, 23,120);
 					} else if (event.skill === 1202128172) { //Safe right back
-						Spawnitem(559, 9000, 248,100);
+						Spawnitem(559, 9000, 248,120);
 					} else if (event.skill === 1202129172) { //Safe right back
-						Spawnitem(559, 9000, 248,100);
+						Spawnitem(559, 9000, 248,120);
 					} else if (event.skill === 1202128160) { //Safe right back
-						Spawnitem(559, 9000, 248,100);
+						Spawnitem(559, 9000, 248,120);
 					} else if (event.skill === 1202129160) { //Safe right back
-						Spawnitem(559, 9000, 248,100);
+						Spawnitem(559, 9000, 248,120);
 					} else if (event.skill === 1202128159) { //Safe right front
-						Spawnitem(559, 9000, 293,100);
+						Spawnitem(559, 9000, 293,120);
 					} else if (event.skill === 1202129159) { //Safe right front
-						Spawnitem(559, 9000, 293,100);
+						Spawnitem(559, 9000, 293,120);
 					} else if (event.skill === 1202128171) { //Safe right front
-						Spawnitem(559, 9000, 293,100);
+						Spawnitem(559, 9000, 293,120);
 					} else if (event.skill === 1202129171) { //Safe right front
-						Spawnitem(559, 9000, 293,100);
+						Spawnitem(559, 9000, 293,120);
 					} else if (event.skill === 1202128173) { //Safe left back
-						Spawnitem(559, 9000, 113,100);
+						Spawnitem(559, 9000, 113,120);
 					} else if (event.skill === 1202129173) { //Safe left back
-						Spawnitem(559, 9000, 113,100);
+						Spawnitem(559, 9000, 113,120);
 					} else if (event.skill === 1202128165) { //Safe left back
-						Spawnitem(559, 9000, 113,100);
+						Spawnitem(559, 9000, 113,120);
 					} else if (event.skill === 1202129165) { //Safe left back
-						Spawnitem(559, 9000, 113,100);
+						Spawnitem(559, 9000, 113,120);
 					} else if (event.skill === 1202128166) { //Safe left front
-						Spawnitem(559, 9000, 68,100);
+						Spawnitem(559, 9000, 68,120);
 					} else if (event.skill === 1202129166) { //Safe left front
-						Spawnitem(559, 9000, 68,100);	
+						Spawnitem(559, 9000, 68,120);	
 					} else if (event.skill === 1202128170) { //Safe left front
-						Spawnitem(559, 9000, 68,100);
+						Spawnitem(559, 9000, 68,120);
 					} else if (event.skill === 1202129170) { //Safe left front
-						Spawnitem(559, 9000, 68,100);	
+						Spawnitem(559, 9000, 68,120);	
 					} else if (event.skill === 1202128169) { //Safe back left
-						Spawnitem(559, 9000, 158,100);
+						Spawnitem(559, 9000, 158,120);
 					} else if (event.skill === 1202129169) { //Safe back left
-						Spawnitem(559, 9000, 158,100);
+						Spawnitem(559, 9000, 158,120);
 					} else if (event.skill === 1202128161) { //Safe back left
-						Spawnitem(559, 9000, 158,100);
+						Spawnitem(559, 9000, 158,120);
 					} else if (event.skill === 1202129161) { //Safe back left
-						Spawnitem(559, 9000, 158,100);
+						Spawnitem(559, 9000, 158,120);
 					} else if (event.skill === 1202128164) { //Safe back right
-						Spawnitem(559, 9000, 203,100);
+						Spawnitem(559, 9000, 203,120);
 					} else if (event.skill === 1202129164) { //Safe back right
-						Spawnitem(559, 9000, 203,100);
+						Spawnitem(559, 9000, 203,120);
 					} else if (event.skill === 1202128168) { //Safe back right
-						Spawnitem(559, 9000, 203,100);
+						Spawnitem(559, 9000, 203,120);
 					} else if (event.skill === 1202129168) { //Safe back right
-						Spawnitem(559, 9000, 203,100);
+						Spawnitem(559, 9000, 203,120);
 					}  
-			}
-		}
 			}
 			}
 		 }
-	 })
-	 
+});
+
 	 function sendMessage(msg) {
 			if (sendToParty) {
 			dispatch.toServer('C_CHAT', 1, {
