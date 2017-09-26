@@ -90,8 +90,8 @@ const FirstBossActionsHM = {
 	1202129165: {msg: 'Safe left back ←↙'},
 	1202128166: {msg: 'Safe left front ←↖'},
 	1202129166: {msg: 'Safe left front ←↖'},
-	1202128170: {msg: 'Safe left front'},
-	1202129170: {msg: 'Safe left front'},
+	1202128170: {msg: 'Safe left front ←↖'},
+	1202129170: {msg: 'Safe left front ←↖'},
 	1202128169: {msg: 'Safe back left ↓↙'},
 	1202129169: {msg: 'Safe back left ↓↙'},
 	1202128161: {msg: 'Safe back left ↓↙'},
@@ -155,12 +155,12 @@ module.exports = function rk9guide(dispatch) {
 		isTank = false,
 		warned = false,
 		warning = false,
+		checklastboss = true,
 		insidezone = false,
 		insidemap = false,
 		sendToParty = false,
 		enabled = true,
-		enabletp = false,
-		enablebombtp = false;
+		itemhelper = true;
 		
 	// DO NOT EDIT IF UN-SURE
 	dispatch.hook('S_LOAD_TOPO', 1, (event) => {				// Welcome Message upon entering dungeon
@@ -223,16 +223,10 @@ module.exports = function rk9guide(dispatch) {
 		command.message((sendToParty ? 'Messages will be sent to the party' : 'Only you will see messages'));
 	});
 	
-	command.add('bomb', () => {
+	command.add('itemhelper', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		enablebombtp = !enablebombtp;
-		command.message('Bomb TP '+(enablebombtp ? 'Enabled' : 'Disabled') + '.');
-	});
-	
-	command.add('rocket', () => {
-		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		enabletp = !enabletp;
-		command.message('Rocket TP ' + (enabletp ? 'Enabled' : 'Disabled') + '.');
+		itemhelper = !itemhelper;
+		command.message('Item helper spawn ' + (itemhelper ? 'Enabled' : 'Disabled') + '.');
 	});
 	
 	command.add('tank', () => {
@@ -243,12 +237,12 @@ module.exports = function rk9guide(dispatch) {
 	
 	command.add('info', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message(mode + '<br> Boss notice: ' + enabled + '<br> Bomb TP: ' + enablebombtp + '<br> Rocket TP: ' + enabletp + '<br> Party Notice: ' + sendToParty + '<br> Tank Mode: ' + isTank + '<br>');
+		command.message(mode + '<br> Boss notice: ' + enabled + '<br> Party Notice: ' + sendToParty + '<br> Tank Mode: ' + isTank + '<br>');
 	});
 	
 	command.add('help', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message('<br>ALL TP ARE DISABLED BY DEFAULT <br> - !rk9 to toggle module <br> - !party to toggle party call out <br> - !bomb to toggle Bomb Tele NOT AVAILABLE IN HM <br> - !rocket to toggle Rocket Tele NOT TESTED <br> - !info to show Enabled or Disabled <br> - !tank to toggle Tank Mode <br>');
+		command.message('<br>!rk9 to toggle module <br> - !party to toggle party call out <br> - !info to show Enabled or Disabled <br> - !tank to toggle Tank Mode <br>');
 	});
 	
 	command.add('debug', () => {
@@ -259,28 +253,6 @@ module.exports = function rk9guide(dispatch) {
 	dispatch.hook('C_PLAYER_LOCATION', 1, (event) => {
         location = event;
     });
-	
-	dispatch.hook('S_DUNGEON_EVENT_MESSAGE', 1, (event) => {	
-		if (!enabled || whichboss === 0) return;
-		let msgId = parseInt(event.message.replace('@dungeon:', ''));
-		if (isInv === 0) {
-			if (msgId === 9935302) {
-				firstskill = 'IN';
-			} else if (msgId === 9935303) {
-				firstskill = 'OUT'
-			} else if (msgId === 9935304) {
-				firstskill = 'WAVE'
-			}
-		} else if (isInv === 1) {
-			if (msgId === 9935302) {
-				secondskill = 'IN';
-			} else if (msgId === 9935303) {
-				secondskill = 'OUT'
-			} else if (msgId === 9935304) {
-				secondskill = 'WAVE'
-			}
-		}
-	})
 	
 	// NEED MORE TESTING 
 	// FOR WARRIOR / ZERK TANK MODE
@@ -353,38 +325,70 @@ module.exports = function rk9guide(dispatch) {
 		} else insidezone = false;
 		})
 	 
+	 	dispatch.hook('S_DUNGEON_EVENT_MESSAGE', 1, (event) => {	
+		if (!enabled || whichboss === 0) return;
+		let msgId = parseInt(event.message.replace('@dungeon:', ''));
+		if(msgId === 9935311) { //STANDARD 
+			firstskill = secondskill;
+			secondskill = 0;
+			sendMessage ('Next: ' + firstskill + ' + ' + secondskill); 
+		} else if (msgId === 9935312) { //REVERSE
+			secondskill = firstskill;
+			firstskill = 0;
+			sendMessage ('Next: ' + firstskill + ' + ' + secondskill); 
+		}
+		if(!checklastboss) return;
+		if (msgId === 9935302) {
+			checklastboss = false;
+			firstskill = 'IN'
+		} else if (msgId === 9935303) {
+			checklastboss = false;
+			firstskill = 'OUT'
+		} else if (msgId === 9935304) {
+			checklastboss = false;
+			firstskill = 'WAVE'
+		}
+	})
+	
 	 dispatch.hook('S_QUEST_BALLOON', 1, (event) => {
 		if(!enabled) return;
 		if(insidezone && insidemap) {
-			isInv = 0; // TEMPORARY EASY MODE
 			dungeonmsg = parseInt(event.message.replace('@monsterBehavior:', ''));
 			if ( firstskill === 0 ) {
 				if(dungeonmsg === 935301) {
-					firstskill = 'IN'
+					firstskill = 'IN';
+					sendMessage(firstskill + ' + ' + secondskill);
+					secondskill = firstskill;
+					firstskill = 0;
 				} else if(dungeonmsg === 935302) {
-					firstskill = 'OUT'
+					firstskill = 'OUT';
+					sendMessage(firstskill + ' + ' + secondskill);
+					secondskill = firstskill;
+					firstskill = 0;
 				} else if(dungeonmsg === 935303) {
 					firstskill = 'WAVE'
+					sendMessage(firstskill + ' + ' + secondskill);
+					secondskill = firstskill;
+					firstskill = 0;
+					
 				}	
 			} else if ( secondskill === 0 ) {
 				if(dungeonmsg === 935301) {
 					secondskill = 'IN'
+					sendMessage(firstskill + ' + ' + secondskill);
+					firstskill = secondskill;
+					secondskill = 0;
 				} else if(dungeonmsg === 935302) {
 					secondskill = 'OUT'
+					sendMessage(firstskill + ' + ' + secondskill);
+					firstskill = secondskill;
+					secondskill = 0;
 				} else if(dungeonmsg === 935303) {
 					secondskill = 'WAVE'
+					sendMessage(firstskill + ' + ' + secondskill);
+					firstskill = secondskill;
+					secondskill = 0;					
 				}
-			}
-			if(dungeonmsg === 'standardorder') { //STANDARD 
-				isInv = 0;
-				firstskill = secondskill;
-				secondskill = 0;
-				sendMessage ('Next: ' + firstskill + ' + ' + secondskill); 
-			} else if (dungeonmsg === 'reverseorder') { //REVERSE
-				//isInv = 1;
-				secondskill = firstskill;
-				firstskill = 0;
-				sendMessage ('Next: ' + firstskill + ' + ' + secondskill); 
 			}
 			return;
 		}
@@ -407,44 +411,11 @@ module.exports = function rk9guide(dispatch) {
 							sendMessage(FirstBossActionsTank[event.skill].msg);
 							}
 						}
-					if(event.skill === 1189020954) //Bomb TP
-					{
-						if (!enablebombtp) return;
-						setTimeout(function(){
-						location.z1 += 280;
-						dispatch.toServer('C_PLAYER_LOCATION', 1, location);
-						dispatch.toClient('S_SPAWN_ME', 1, {
-						target: cid,
-						x: location.x1,
-						y: location.y1,
-						z: location.z1,
-						alive: 1,
-						unk: 0
-						});
-						}, 11500);
-						return;
-					}
-					if(event.skill === 1189020957) //Rocket TP
-					{
-						setTimeout(function(){
+						if(event.skill === 1202128157)
+						{
+							setTimeout(function(){
 							sendMessage('JUMP!');
 						}, 12000);
-						if (enabletp) {
-						setTimeout(function(){
-						location.z1 += 1400;
-						dispatch.toServer('C_PLAYER_LOCATION', 1, location);
-						dispatch.toClient('S_SPAWN_ME', 1, {
-						target: cid,
-						x: location.x1,
-						y: location.y1,
-						z: location.z1,
-						alive: 1,
-						unk: 0
-						});
-						}, 13500);
-						return;
-						}
-					}
 				} else if (whichboss === 2) {
 						if (SecondBossActions[event.skill]) {
 							sendMessage(SecondBossActions[event.skill].msg);
@@ -465,6 +436,7 @@ module.exports = function rk9guide(dispatch) {
 							sendMessage(ThirdBossActionsTank[event.skill].msg);
 							}
 						}
+						if(itemhelper) {
 						if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
 							Spawnitem(556, 3000, 190,200);
 							Spawnitem(556, 3000, 10,200);
@@ -478,6 +450,7 @@ module.exports = function rk9guide(dispatch) {
 							Spawnitem(556, 3000, 170, 200);
 							Spawnitem(556, 3000, 350, 200);
 						}
+						}
 				} else return;
 		} else if (whichmode === 2) { //HARD MODE
 			if(whichboss === 1) {
@@ -490,26 +463,11 @@ module.exports = function rk9guide(dispatch) {
 						sendMessage(FirstBossActionsTankHM[event.skill].msg);
 						}
 					}
-				if(event.skill === 1202128157)
-				{
+					if(event.skill === 1202128157)
+					{
 					setTimeout(function(){
 						sendMessage('JUMP!');
 					}, 12000);
-					if (enabletp) {
-					setTimeout(function(){
-					location.z1 += 1400;
-					dispatch.toServer('C_PLAYER_LOCATION', 1, location);
-					dispatch.toClient('S_SPAWN_ME', 1, {
-					target: cid,
-					x: location.x1,
-					y: location.y1,
-					z: location.z1,
-					alive: 1,
-					unk: 0
-					});
-					}, 13500);
-					}
-				}
 			} else if (whichboss === 2) {
 					if (SecondBossActionsHM[event.skill]) {
 						sendMessage(SecondBossActionsHM[event.skill].msg);
@@ -530,6 +488,7 @@ module.exports = function rk9guide(dispatch) {
 						sendMessage(ThirdBossActionsTankHM[event.skill].msg);
 						}
 					}
+					if(itemhelper) {
 					if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
 						Spawnitem(556, 3000, 190,200);
 						Spawnitem(556, 3000, 10,200);
@@ -563,23 +522,14 @@ module.exports = function rk9guide(dispatch) {
 						Spawnitem(603, 7000, 340, 300);
 						Spawnitem(603, 7000, 360, 300);
 						setTimeout(function(){
-							sendMessage(firstskill + ' + ' + secondskill);
-							if(isInv === 0) {
-								firstskill = secondskill;
-								secondskill = 0;
-							} else if (isInv === 1) {
-								secondskill = firstskill;
-								firstskill = 0;
-							}
-							setTimeout(function(){
-							sendMessage('Next: '  + firstskill + ' + ' + secondskill);
-							}, 5500);
-						}, 500);
+						sendMessage('Next: '  + firstskill + ' + ' + secondskill);
+						}, 5500);
+					}
 					}
 			} else return;
 		}
 		} else if (event.stage === 3) {
-			if(whichmode != 0 && whichboss === 3) {
+			if(whichmode != 0 && whichboss === 3 && itemhelper) {
 				if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
 					Spawnitem(559, 3000, 190,200);
 					Spawnitem(559, 3000, 10,200);
@@ -595,7 +545,7 @@ module.exports = function rk9guide(dispatch) {
 				}
 			}
 		} else if (event.stage === 1) {
-			if(whichmode === 2 && whichboss === 1) {
+			if(whichmode === 2 && whichboss === 1 && itemhelper) {
 					if(event.skill === 1202128167) { //Safe front right
 						Spawnitem(559, 9000, 338,100);
 					} else if (event.skill === 1202128163) { //Safe front right														
@@ -690,11 +640,11 @@ module.exports = function rk9guide(dispatch) {
 	
 	function initialize() {
 		enabled = true;
-		enablebombtp = false;
-		enabletp = false;
 		firstskill = 0;
 		secondskill = 0;
+		tempskill = 0;
 		isInv = 0;
+		checklastboss = true;
 	}		
 	
 	function Spawnitem(item, time, degrees, radius) {
