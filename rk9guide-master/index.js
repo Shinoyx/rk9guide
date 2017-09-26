@@ -137,6 +137,7 @@ module.exports = function rk9guide(dispatch) {
 	const command = Command(dispatch);
 	let firstskill = 0,
 		secondskill = 0,
+		tempskill = 0,
 		isInv = 0,
 		uid = 999999999,
 		time = 1000,
@@ -159,6 +160,7 @@ module.exports = function rk9guide(dispatch) {
 		insidezone = false,
 		insidemap = false,
 		sendToParty = false,
+		lastbosstoparty = false,
 		enabled = true,
 		itemhelper = true;
 		
@@ -221,6 +223,12 @@ module.exports = function rk9guide(dispatch) {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
 		sendToParty = !sendToParty;
 		command.message((sendToParty ? 'Messages will be sent to the party' : 'Only you will see messages'));
+	});
+	
+	command.add('lastbosstoparty', () => {
+		if(!insidemap) { command.message('You must be inside RK-9'); return; }
+		lastbosstoparty = !lastbosstoparty;
+		command.message((lastbosstoparty ? 'Messages will be sent to the party' : 'Only you will see messages'));
 	});
 	
 	command.add('itemhelper', () => {
@@ -329,24 +337,27 @@ module.exports = function rk9guide(dispatch) {
 		if (!enabled || whichboss === 0) return;
 		let msgId = parseInt(event.message.replace('@dungeon:', ''));
 		if(msgId === 9935311) { //STANDARD 
-			firstskill = secondskill;
+			firstskill = tempskill;
 			secondskill = 0;
 			sendMessage ('Next: ' + firstskill + ' + ' + secondskill); 
 		} else if (msgId === 9935312) { //REVERSE
-			secondskill = firstskill;
+			secondskill = tempskill;
 			firstskill = 0;
 			sendMessage ('Next: ' + firstskill + ' + ' + secondskill); 
 		}
 		if(!checklastboss) return;
 		if (msgId === 9935302) {
 			checklastboss = false;
-			firstskill = 'IN'
+			firstskill = 'IN';
+			tempskill = 'IN';
 		} else if (msgId === 9935303) {
 			checklastboss = false;
-			firstskill = 'OUT'
+			firstskill = 'OUT';
+			tempskill = 'OUT';
 		} else if (msgId === 9935304) {
 			checklastboss = false;
-			firstskill = 'WAVE'
+			firstskill = 'WAVE';
+			tempskill = 'WAVE';
 		}
 	})
 	
@@ -354,40 +365,51 @@ module.exports = function rk9guide(dispatch) {
 		if(!enabled) return;
 		if(insidezone && insidemap) {
 			dungeonmsg = parseInt(event.message.replace('@monsterBehavior:', ''));
-			if ( firstskill === 0 ) {
+			if ( firstskill === 0 ) { //REVERSE
 				if(dungeonmsg === 935301) {
 					firstskill = 'IN';
-					sendMessage(firstskill + ' + ' + secondskill);
-					secondskill = firstskill;
+					tempskill = 'IN';
+					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					secondskill = tempskill;
 					firstskill = 0;
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '근' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
 				} else if(dungeonmsg === 935302) {
 					firstskill = 'OUT';
-					sendMessage(firstskill + ' + ' + secondskill);
-					secondskill = firstskill;
+					tempskill = 'OUT';
+					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					secondskill = tempskill;
 					firstskill = 0;
+					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '원' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
 				} else if(dungeonmsg === 935303) {
-					firstskill = 'WAVE'
-					sendMessage(firstskill + ' + ' + secondskill);
-					secondskill = firstskill;
+					firstskill = 'WAVE';
+					tempskill = 'WAVE';
+					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					secondskill = tempskill;
 					firstskill = 0;
-					
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '전' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
 				}	
-			} else if ( secondskill === 0 ) {
+			} else if ( secondskill === 0 ) { //STANDARD
 				if(dungeonmsg === 935301) {
-					secondskill = 'IN'
-					sendMessage(firstskill + ' + ' + secondskill);
-					firstskill = secondskill;
+					secondskill = 'IN';
+					tempskill = 'IN';
+					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					firstskill = tempskill;
 					secondskill = 0;
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '근' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
 				} else if(dungeonmsg === 935302) {
-					secondskill = 'OUT'
-					sendMessage(firstskill + ' + ' + secondskill);
-					firstskill = secondskill;
+					secondskill = 'OUT';
+					tempskill = 'OUT';
+					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					firstskill = tempskill;
 					secondskill = 0;
+					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '원' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
 				} else if(dungeonmsg === 935303) {
-					secondskill = 'WAVE'
-					sendMessage(firstskill + ' + ' + secondskill);
-					firstskill = secondskill;
-					secondskill = 0;					
+					secondskill = 'WAVE';
+					tempskill = 'WAVE';
+					setTimeout(function(){ sendMessage(firstskill + ' + ' + secondskill);}, 500);
+					firstskill = tempskill;
+					secondskill = 0;
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '전' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
 				}
 			}
 			return;
@@ -613,9 +635,10 @@ module.exports = function rk9guide(dispatch) {
 					}  
 			}
 		}
-		}
-		
-	})
+			}
+			}
+		 }
+	 })
 	 
 	 function sendMessage(msg) {
 			if (sendToParty) {
