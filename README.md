@@ -47,8 +47,11 @@ V1.09
 - Edit and shorten code length due to inefficient spawn item
 
 V1.10
-- Will update later!
-
+- Fixed normal mode first boss rocket jump call out
+- Added last boss 97% call out
+- Fixed hardmode last boss call outs on extrememode as well
+- Added toggle function for item spawn
+- Added function to call out only last boss in out wave mechs
 
 
 # Future updates
