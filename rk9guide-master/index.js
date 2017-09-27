@@ -350,14 +350,17 @@ module.exports = function rk9guide(dispatch) {
 			checklastboss = false;
 			firstskill = 'IN';
 			tempskill = 'IN';
+			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '근' });}, 3000); }//HARDCODED CALL TO PARTY FOR KR
 		} else if (msgId === 9935303) {
 			checklastboss = false;
 			firstskill = 'OUT';
 			tempskill = 'OUT';
+			if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '원' });}, 3000); }//HARDCODED CALL TO PARTY FOR KR
 		} else if (msgId === 9935304) {
 			checklastboss = false;
 			firstskill = 'WAVE';
 			tempskill = 'WAVE';
+			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '전' });}, 3000); }//HARDCODED CALL TO PARTY FOR KR
 		}
 	})
 	
@@ -433,7 +436,7 @@ module.exports = function rk9guide(dispatch) {
 							sendMessage(FirstBossActionsTank[event.skill].msg);
 							}
 						}
-						if(event.skill === 1202128157)
+						if(event.skill === 1189020957)
 						{
 							setTimeout(function(){
 							sendMessage('JUMP!');
