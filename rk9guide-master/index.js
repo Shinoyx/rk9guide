@@ -250,7 +250,7 @@ module.exports = function rk9guide(dispatch) {
 	
 	command.add('help', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message('<br>!rk9 to toggle module <br> - !party to toggle party call out <br> - !info to show Enabled or Disabled <br> - !tank to toggle Tank Mode <br>');
+		command.message('<br>!rk9 to toggle module <br> - !party to toggle party call out <br> - !lastbosstoparty to toggle lastboss callouts <br> - !itemhelper to toggle item spawn on ground <br> - !info to show Enabled or Disabled <br> - !tank to toggle Tank Mode <br>');
 	});
 	
 	command.add('debug', () => {
