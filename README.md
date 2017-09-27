@@ -13,15 +13,15 @@ Please report any issues to me either here or on discord :)
 Only usable in the RK9 Map. Using of commands outside map will return undefine command.
 - !rk9 to toggle module (DEFAULT: ON)
 - !party to toggle party notice (DEFAULT: SELF ONLY)
-- !bomb to toggle 1st boss bomb teleport ~ Only usable in Normal mode (DEFAULT: OFF)
-- !rocket to toggle 1st boss rocket teleport (DEFAULT: OFF)
+- !lastbosstoparty to toggle  IN OUT WAVE call outs (KR only - Still testing) (DEFAULT: OFF)
+- !itemhelper to toggle item spawn on ground (DEFAULT: ON)
 - !tank to toggle tank mode (Auto-enabled if you are LANCER or BRAWLER)
 - !info to show all the above settings ON or OFF
 - !help to show what commands are there in the RK9 guide module
 - !debug FOR DEBUGGING PURPOSES
 
 # Known issues
-- Have yet to map out last boss hardmode - extreme version call outs
+- All fixed as of 26th Sept
 
 # Patch Notes
 V1.00
@@ -46,10 +46,13 @@ V1.09
 - Deleted format.js due to usage of command
 - Edit and shorten code length due to inefficient spawn item
 
+V1.10
+- Will update later!
+
 
 
 # Future updates
-- Finish mapping hardmode skills 
+- Open to suggestions
 
 # Screenshots
 ![Screenshot](1.png)
