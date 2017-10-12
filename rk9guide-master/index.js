@@ -283,7 +283,7 @@ module.exports = function rk9guide(dispatch) {
 		}
 	});*/
 	
-	dispatch.hook('S_BOSS_GAGE_INFO', 3, (event) => {					// DO NOT EDIT IF UN-SURE
+	dispatch.hook('S_BOSS_GAGE_INFO', 2, (event) => {					// DO NOT EDIT IF UN-SURE
 		if (!enabled) return;
 		bosshp = event.curHp / event.maxHp;
 		if(whichboss != 0) {
@@ -350,17 +350,17 @@ module.exports = function rk9guide(dispatch) {
 			checklastboss = false;
 			firstskill = 'IN';
 			tempskill = 'IN';
-			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '근' });}, 3000); }//HARDCODED CALL TO PARTY FOR KR
+			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 3000); }
 		} else if (msgId === 9935303) {
 			checklastboss = false;
 			firstskill = 'OUT';
 			tempskill = 'OUT';
-			if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '원' });}, 3000); }//HARDCODED CALL TO PARTY FOR KR
+			if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 3000); }
 		} else if (msgId === 9935304) {
 			checklastboss = false;
 			firstskill = 'WAVE';
 			tempskill = 'WAVE';
-			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '전' });}, 3000); }//HARDCODED CALL TO PARTY FOR KR
+			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'WAVE' });}, 3000); }
 		}
 	})
 	
@@ -375,21 +375,21 @@ module.exports = function rk9guide(dispatch) {
 					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
-					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '근' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 8000); }
 				} else if(dungeonmsg === 935302) {
 					firstskill = 'OUT';
 					tempskill = 'OUT';
 					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
-					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '원' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
+					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 8000); }
 				} else if(dungeonmsg === 935303) {
 					firstskill = 'WAVE';
 					tempskill = 'WAVE';
 					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
-					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '전' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'WAVE' });}, 8000); }
 				}	
 			} else if ( secondskill === 0 ) { //STANDARD
 				if(dungeonmsg === 935301) {
@@ -398,21 +398,21 @@ module.exports = function rk9guide(dispatch) {
 					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
-					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '근' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 8000); }
 				} else if(dungeonmsg === 935302) {
 					secondskill = 'OUT';
 					tempskill = 'OUT';
 					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
-					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '원' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
+					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 8000); }
 				} else if(dungeonmsg === 935303) {
 					secondskill = 'WAVE';
 					tempskill = 'WAVE';
 					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
-					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '전' });}, 8000); }//HARDCODED CALL TO PARTY FOR KR
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'WAVE' });}, 8000); }
 				}
 			}
 			return;
