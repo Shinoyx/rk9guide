@@ -556,17 +556,89 @@ module.exports = function rk9guide(dispatch) {
 		} else if (event.stage === 3) {
 			if(whichmode != 0 && whichboss === 3 && itemhelper) {
 				if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
-					Spawnitem(559, 3000, 190,200);
-					Spawnitem(559, 3000, 10,200);
+					Spawnitem(603, 3000, 190,210);
+					Spawnitem(603, 3000, 190,220);
+					Spawnitem(603, 3000, 190,230);
+					Spawnitem(603, 3000, 190,240);
+					Spawnitem(603, 3000, 190,250);
+					Spawnitem(603, 3000, 200,210);
+					Spawnitem(603, 3000, 210,220);
+					Spawnitem(603, 3000, 220,230);
+					Spawnitem(603, 3000, 230,240);
+					Spawnitem(603, 3000, 240,250);
+					Spawnitem(603, 3000, 10,210);
+					Spawnitem(603, 3000, 10,220);
+					Spawnitem(603, 3000, 10,230);
+					Spawnitem(603, 3000, 10,240);
+					Spawnitem(603, 3000, 10,250);
+					Spawnitem(603, 3000, 20,210);
+					Spawnitem(603, 3000, 30,220);
+					Spawnitem(603, 3000, 40,230);
+					Spawnitem(603, 3000, 50,240);
+					Spawnitem(603, 3000, 60,250);
 				} else if (event.skill === 1189020765 || event.skill === 1189021765 || event.skill === 1189020766 || event.skill === 1189021766) {
-					Spawnitem(559, 3000, 170, 200);
-					Spawnitem(559, 3000, 350, 200);
+					Spawnitem(603, 3000, 170, 210);
+					Spawnitem(603, 3000, 170, 220);
+					Spawnitem(603, 3000, 170, 230);
+					Spawnitem(603, 3000, 170, 240);
+					Spawnitem(603, 3000, 170, 250);
+					Spawnitem(603, 3000, 160, 210);
+					Spawnitem(603, 3000, 150, 220);
+					Spawnitem(603, 3000, 140, 230);
+					Spawnitem(603, 3000, 130, 240);
+					Spawnitem(603, 3000, 120, 250);
+					Spawnitem(603, 3000, 350, 210);
+					Spawnitem(603, 3000, 350, 220);
+					Spawnitem(603, 3000, 350, 230);
+					Spawnitem(603, 3000, 350, 240);
+					Spawnitem(603, 3000, 350, 250);
+					Spawnitem(603, 3000, 340, 210);
+					Spawnitem(603, 3000, 330, 220);
+					Spawnitem(603, 3000, 320, 230);
+					Spawnitem(603, 3000, 310, 240);
+					Spawnitem(603, 3000, 300, 250);
 				} else if(event.skill === 1202127964 || event.skill === 1202128964 || event.skill === 1202127967 || event.skill === 1202128967) {
-					Spawnitem(559, 3000, 190,200);
-					Spawnitem(559, 3000, 10,200);
+					Spawnitem(603, 3000, 190,210);
+					Spawnitem(603, 3000, 190,220);
+					Spawnitem(603, 3000, 190,230);
+					Spawnitem(603, 3000, 190,240);
+					Spawnitem(603, 3000, 190,250);
+					Spawnitem(603, 3000, 200,210);
+					Spawnitem(603, 3000, 210,220);
+					Spawnitem(603, 3000, 220,230);
+					Spawnitem(603, 3000, 230,240);
+					Spawnitem(603, 3000, 240,250);
+					Spawnitem(603, 3000, 10,210);
+					Spawnitem(603, 3000, 10,220);
+					Spawnitem(603, 3000, 10,230);
+					Spawnitem(603, 3000, 10,240);
+					Spawnitem(603, 3000, 10,250);
+					Spawnitem(603, 3000, 20,210);
+					Spawnitem(603, 3000, 30,220);
+					Spawnitem(603, 3000, 40,230);
+					Spawnitem(603, 3000, 50,240);
+					Spawnitem(603, 3000, 60,250);
 				} else if (event.skill === 1202127965 || event.skill === 1202128965 || event.skill === 1202127966 || event.skill === 1202128966) {
-					Spawnitem(559, 3000, 170, 200);
-					Spawnitem(559, 3000, 350, 200);
+					Spawnitem(603, 3000, 170, 210);
+					Spawnitem(603, 3000, 170, 220);
+					Spawnitem(603, 3000, 170, 230);
+					Spawnitem(603, 3000, 170, 240);
+					Spawnitem(603, 3000, 170, 250);
+					Spawnitem(603, 3000, 160, 210);
+					Spawnitem(603, 3000, 150, 220);
+					Spawnitem(603, 3000, 140, 230);
+					Spawnitem(603, 3000, 130, 240);
+					Spawnitem(603, 3000, 120, 250);
+					Spawnitem(603, 3000, 350, 210);
+					Spawnitem(603, 3000, 350, 220);
+					Spawnitem(603, 3000, 350, 230);
+					Spawnitem(603, 3000, 350, 240);
+					Spawnitem(603, 3000, 350, 250);
+					Spawnitem(603, 3000, 340, 210);
+					Spawnitem(603, 3000, 330, 220);
+					Spawnitem(603, 3000, 320, 230);
+					Spawnitem(603, 3000, 310, 240);
+					Spawnitem(603, 3000, 300, 250);
 				}
 			}
 		} else if (event.stage === 1) {
