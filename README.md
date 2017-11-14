@@ -1,5 +1,8 @@
 # RK9-Guide
 
+*14 Nov 2017
+*Please download latest version for HM/EM for NA/EU servers as there is a change in packet defination
+
 SCRIPT BY SHINOYX - For TERA
 For private use only. Credits to teralove and soler91 for their VS guides
 
