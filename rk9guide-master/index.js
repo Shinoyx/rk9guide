@@ -283,7 +283,7 @@ module.exports = function rk9guide(dispatch) {
 		}
 	});*/
 	
-	dispatch.hook('S_BOSS_GAGE_INFO', 2, (event) => {					// DO NOT EDIT IF UN-SURE
+	dispatch.hook('S_BOSS_GAGE_INFO', 3, (event) => {					// DO NOT EDIT IF UN-SURE
 		if (!enabled) return;
 		bosshp = event.curHp / event.maxHp;
 		if(whichboss != 0) {
