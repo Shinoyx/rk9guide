@@ -1,6 +1,6 @@
 # RK9-Guide
 
-- (14 Nov 2017)
+(14 Nov 2017)
 - *Please download latest version for HM/EM for NA/EU servers as there is a change in packet defination
 - *Please also update your tera data file to the latest from https://github.com/meishuu/tera-data
 
