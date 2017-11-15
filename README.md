@@ -1,7 +1,12 @@
 # RK9-Guide
 
-# 14 Nov 2017
+(14 Nov 2017)
 *Please download latest version for HM/EM for NA/EU servers as there is a change in packet defination
+*Please also update your tera data file to the latest from https://github.com/meishuu/tera-data
+
+Opcodes for:
+EU -> S_QUEST_BALLOON = 20746
+NA -> NOT RELEASED
 
 SCRIPT BY SHINOYX - For TERA
 For private use only. Credits to teralove and soler91 for their VS guides
