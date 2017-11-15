@@ -1,6 +1,6 @@
 # RK9-Guide
 
-*14 Nov 2017
+#14 Nov 2017
 *Please download latest version for HM/EM for NA/EU servers as there is a change in packet defination
 
 SCRIPT BY SHINOYX - For TERA
@@ -8,7 +8,7 @@ For private use only. Credits to teralove and soler91 for their VS guides
 
 Call out attacks from RK-9 Bosses all 3 of them including both NORMAL MODE & HARD MODE & EXTREME MODE
 
-*Script automatically detects bosses and which dungeon hard or normal.
+Script automatically detects bosses and which dungeon hard or normal.
 
 Please report any issues to me either here or on discord :)
 
@@ -16,7 +16,7 @@ Please report any issues to me either here or on discord :)
 Only usable in the RK9 Map. Using of commands outside map will return undefine command.
 - !rk9 to toggle module (DEFAULT: ON)
 - !party to toggle party notice (DEFAULT: SELF ONLY)
-- !lastbosstoparty to toggle  IN OUT WAVE call outs (KR only - Still testing) (DEFAULT: OFF)
+- !lastbosstoparty to toggle  IN OUT WAVE call outs (DEFAULT: OFF)
 - !itemhelper to toggle item spawn on ground (DEFAULT: ON)
 - !tank to toggle tank mode (Auto-enabled if you are LANCER or BRAWLER)
 - !info to show all the above settings ON or OFF
@@ -24,7 +24,7 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
 - !debug FOR DEBUGGING PURPOSES
 
 # Known issues
-- All fixed as of 26th Sept
+- All fixed as of 15th Nov
 
 # Patch Notes
 V1.00
