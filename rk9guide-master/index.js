@@ -336,7 +336,7 @@ module.exports = function rk9guide(dispatch) {
 	 	dispatch.hook('S_DUNGEON_EVENT_MESSAGE', 1, (event) => {	
 		if (!enabled || whichboss === 0) return;
 		let msgId = parseInt(event.message.replace('@dungeon:', ''));
-		if(msgId === 9935311) { //STANDARD 
+		if(msgId === 9935311) { //STANDARD
 			firstskill = tempskill;
 			secondskill = 0;
 			sendMessage ('Next: ' + firstskill + ' + ' + secondskill); 
@@ -347,19 +347,19 @@ module.exports = function rk9guide(dispatch) {
 		}
 		if(!checklastboss) return;
 		if (msgId === 9935302) {
-			checklastboss = false;
 			firstskill = 'IN';
 			tempskill = 'IN';
+			checklastboss = false;
 			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 3000); }
 		} else if (msgId === 9935303) {
-			checklastboss = false;
 			firstskill = 'OUT';
 			tempskill = 'OUT';
+			checklastboss = false;
 			if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 3000); }
 		} else if (msgId === 9935304) {
-			checklastboss = false;
 			firstskill = 'WAVE';
 			tempskill = 'WAVE';
+			checklastboss = false;
 			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'WAVE' });}, 3000); }
 		}
 	})
