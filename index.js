@@ -347,13 +347,13 @@ module.exports = function rk9guide(dispatch) {
 		}
 		if(!checklastboss) return;
 		if (msgId === 9935302) {
-			firstskill = 'IN';
-			tempskill = 'IN';
+			firstskill = 'OUT';
+			tempskill = 'OUT';
 			checklastboss = false;
 			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 3000); }
 		} else if (msgId === 9935303) {
-			firstskill = 'OUT';
-			tempskill = 'OUT';
+			firstskill = 'IN';
+			tempskill = 'IN';
 			checklastboss = false;
 			if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 3000); }
 		} else if (msgId === 9935304) {
@@ -370,15 +370,15 @@ module.exports = function rk9guide(dispatch) {
 			dungeonmsg = parseInt(event.message.replace('@monsterBehavior:', ''));
 			if ( firstskill === 0 ) { //REVERSE
 				if(dungeonmsg === 935301) {
-					firstskill = 'IN';
-					tempskill = 'IN';
+					firstskill = 'OUT';
+					tempskill = 'OUT';
 					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
 					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 8000); }
 				} else if(dungeonmsg === 935302) {
-					firstskill = 'OUT';
-					tempskill = 'OUT';
+					firstskill = 'IN';
+					tempskill = 'IN';
 					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
@@ -393,15 +393,15 @@ module.exports = function rk9guide(dispatch) {
 				}	
 			} else if ( secondskill === 0 ) { //STANDARD
 				if(dungeonmsg === 935301) {
-					secondskill = 'IN';
-					tempskill = 'IN';
+					secondskill = 'OUT';
+					tempskill = 'OUT';
 					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
 					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 8000); }
 				} else if(dungeonmsg === 935302) {
-					secondskill = 'OUT';
-					tempskill = 'OUT';
+					secondskill = 'IN';
+					tempskill = 'IN';
 					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
