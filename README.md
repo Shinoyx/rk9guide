@@ -4,8 +4,10 @@
 - *Please download latest version for HM/EM for NA/EU servers as there is a change in packet defination
 - *Please also update your tera data file to the latest from https://github.com/meishuu/tera-data
 
-SCRIPT BY SHINOYX - For TERA
-For private use only. Credits to teralove and soler91 for their VS guides
+*TAKE NOTE - last boss protocol message IN+OUT means boss will be hitting inner then outer. NOT the safe zones.
+If you wish to have safe zones called out, feel free to drop me a pm on discord.
+
+Credits to teralove and soler91 for their VS guides
 
 Call out attacks from RK-9 Bosses all 3 of them including both NORMAL MODE & HARD MODE & EXTREME MODE
 
@@ -59,10 +61,5 @@ V1.10
 
 
 # Future updates
-- Open to suggestions
-
-# Screenshots
-![Screenshot](1.png)
-![Screenshot](2.png)
-![Screenshot](3.png)
-![Screenshot](4.png)
+- 2nd Boss orbs line
+- Streamer friendly
