@@ -141,6 +141,8 @@ module.exports = function rk9guide(dispatch) {
 		isInv = 0,
 		uid = 999999999,
 		time = 1000,
+	    	timer = 0,
+		secondcounter = 0,
 		cid,
 		name,
 		boss,
@@ -285,14 +287,28 @@ module.exports = function rk9guide(dispatch) {
 	
 	dispatch.hook('S_SPAWN_NPC', 1, (event) => {
 		if(!enabled) return;
+		if(!itemhelper) return;
 		if(insidemap && insidezone) {
 			if(whichmode === 1 && whichboss === 2) {
 				if(event.npc === 2007) {
-					secondbossnormalmode(event);
+					timer = 5000;
+					secondbossorbs(event, timer);
 				}
 			} else if (whichmode === 2 && whichboss === 2) {
 				if(event.npc === 2007) {
-					
+					if(secondcounter === 0) {
+						timer = 15000;
+						secondbossorbs(event, timer);
+						secondcounter++;
+					} else if (secondcounter === 1) {
+						timer = 10000;
+						secondbossorbs(event, timer);
+						secondcounter++;
+					} else if (secondcounter === 2) {
+						timer = 5000;
+						secondbossorbs(event, timer);
+						secondcounter = 0;
+					}
 				}
 			}
 		}
@@ -805,86 +821,86 @@ module.exports = function rk9guide(dispatch) {
 	}
 	
 	function secondbossnormalmode(pos){
-		spawn2(603, 5000, 0, 25, pos);
-		spawn2(603, 5000, 0, 50, pos);
-		spawn2(603, 5000, 0, 75, pos);
-		spawn2(603, 5000, 0, 100, pos);
-		spawn2(603, 5000, 0, 125, pos);
-		spawn2(603, 5000, 0, 150, pos);
-		spawn2(603, 5000, 0, 175, pos);
-		spawn2(603, 5000, 0, 200, pos);
-		spawn2(603, 5000, 0, 225, pos);
-		spawn2(603, 5000, 0, 250, pos);
-		spawn2(603, 5000, 0, 275, pos);
-		spawn2(603, 5000, 0, 300, pos);
-		spawn2(603, 5000, 0, 325, pos);
-		spawn2(603, 5000, 0, 350, pos);
-		spawn2(603, 5000, 0, 375, pos);
-		spawn2(603, 5000, 0, 400, pos);
-		spawn2(603, 5000, 0, 425, pos);
-		spawn2(603, 5000, 0, 450, pos);
-		spawn2(603, 5000, 0, 475, pos);
-		spawn2(603, 5000, 0, 500, pos);
-		spawn2(603, 5000, 90, 25, pos);
-		spawn2(603, 5000, 90, 50, pos);
-		spawn2(603, 5000, 90, 75, pos);
-		spawn2(603, 5000, 90, 100, pos);
-		spawn2(603, 5000, 90, 125, pos);
-		spawn2(603, 5000, 90, 150, pos);
-		spawn2(603, 5000, 90, 175, pos);
-		spawn2(603, 5000, 90, 200, pos);
-		spawn2(603, 5000, 90, 225, pos);
-		spawn2(603, 5000, 90, 250, pos);
-		spawn2(603, 5000, 90, 275, pos);
-		spawn2(603, 5000, 90, 300, pos);
-		spawn2(603, 5000, 90, 325, pos);
-		spawn2(603, 5000, 90, 350, pos);
-		spawn2(603, 5000, 90, 375, pos);
-		spawn2(603, 5000, 90, 400, pos);
-		spawn2(603, 5000, 90, 425, pos);
-		spawn2(603, 5000, 90, 450, pos);
-		spawn2(603, 5000, 90, 475, pos);
-		spawn2(603, 5000, 90, 500, pos);
-		spawn2(603, 5000, 180, 25, pos);
-		spawn2(603, 5000, 180, 50, pos);
-		spawn2(603, 5000, 180, 75, pos);
-		spawn2(603, 5000, 180, 100, pos);
-		spawn2(603, 5000, 180, 125, pos);
-		spawn2(603, 5000, 180, 150, pos);
-		spawn2(603, 5000, 180, 175, pos);
-		spawn2(603, 5000, 180, 200, pos);
-		spawn2(603, 5000, 180, 225, pos);
-		spawn2(603, 5000, 180, 250, pos);
-		spawn2(603, 5000, 180, 275, pos);
-		spawn2(603, 5000, 180, 300, pos);
-		spawn2(603, 5000, 180, 325, pos);
-		spawn2(603, 5000, 180, 350, pos);
-		spawn2(603, 5000, 180, 375, pos);
-		spawn2(603, 5000, 180, 400, pos);
-		spawn2(603, 5000, 180, 425, pos);
-		spawn2(603, 5000, 180, 450, pos);
-		spawn2(603, 5000, 180, 475, pos);
-		spawn2(603, 5000, 180, 500, pos);
-		spawn2(603, 5000, 270, 25, pos);
-		spawn2(603, 5000, 270, 50, pos);
-		spawn2(603, 5000, 270, 75, pos);
-		spawn2(603, 5000, 270, 100, pos);
-		spawn2(603, 5000, 270, 125, pos);
-		spawn2(603, 5000, 270, 150, pos);
-		spawn2(603, 5000, 270, 175, pos);
-		spawn2(603, 5000, 270, 200, pos);
-		spawn2(603, 5000, 270, 225, pos);
-		spawn2(603, 5000, 270, 250, pos);
-		spawn2(603, 5000, 270, 275, pos);
-		spawn2(603, 5000, 270, 300, pos);
-		spawn2(603, 5000, 270, 325, pos);
-		spawn2(603, 5000, 270, 350, pos);
-		spawn2(603, 5000, 270, 375, pos);
-		spawn2(603, 5000, 270, 400, pos);
-		spawn2(603, 5000, 270, 425, pos);
-		spawn2(603, 5000, 270, 450, pos);
-		spawn2(603, 5000, 270, 475, pos);
-		spawn2(603, 5000, 270, 500, pos);
+		spawn2(603, timer, 0, 25, pos);
+		spawn2(603, timer, 0, 50, pos);
+		spawn2(603, timer, 0, 75, pos);
+		spawn2(603, timer, 0, 100, pos);
+		spawn2(603, timer, 0, 125, pos);
+		spawn2(603, timer, 0, 150, pos);
+		spawn2(603, timer, 0, 175, pos);
+		spawn2(603, timer, 0, 200, pos);
+		spawn2(603, timer, 0, 225, pos);
+		spawn2(603, timer, 0, 250, pos);
+		spawn2(603, timer, 0, 275, pos);
+		spawn2(603, timer, 0, 300, pos);
+		spawn2(603, timer, 0, 325, pos);
+		spawn2(603, timer, 0, 350, pos);
+		spawn2(603, timer, 0, 375, pos);
+		spawn2(603, timer, 0, 400, pos);
+		spawn2(603, timer, 0, 425, pos);
+		spawn2(603, timer, 0, 450, pos);
+		spawn2(603, timer, 0, 475, pos);
+		spawn2(603, timer, 0, 500, pos);
+		spawn2(603, timer, 90, 25, pos);
+		spawn2(603, timer, 90, 50, pos);
+		spawn2(603, timer, 90, 75, pos);
+		spawn2(603, timer, 90, 100, pos);
+		spawn2(603, timer, 90, 125, pos);
+		spawn2(603, timer, 90, 150, pos);
+		spawn2(603, timer, 90, 175, pos);
+		spawn2(603, timer, 90, 200, pos);
+		spawn2(603, timer, 90, 225, pos);
+		spawn2(603, timer, 90, 250, pos);
+		spawn2(603, timer, 90, 275, pos);
+		spawn2(603, timer, 90, 300, pos);
+		spawn2(603, timer, 90, 325, pos);
+		spawn2(603, timer, 90, 350, pos);
+		spawn2(603, timer, 90, 375, pos);
+		spawn2(603, timer, 90, 400, pos);
+		spawn2(603, timer, 90, 425, pos);
+		spawn2(603, timer, 90, 450, pos);
+		spawn2(603, timer, 90, 475, pos);
+		spawn2(603, timer, 90, 500, pos);
+		spawn2(603, timer, 180, 25, pos);
+		spawn2(603, timer, 180, 50, pos);
+		spawn2(603, timer, 180, 75, pos);
+		spawn2(603, timer, 180, 100, pos);
+		spawn2(603, timer, 180, 125, pos);
+		spawn2(603, timer, 180, 150, pos);
+		spawn2(603, timer, 180, 175, pos);
+		spawn2(603, timer, 180, 200, pos);
+		spawn2(603, timer, 180, 225, pos);
+		spawn2(603, timer, 180, 250, pos);
+		spawn2(603, timer, 180, 275, pos);
+		spawn2(603, timer, 180, 300, pos);
+		spawn2(603, timer, 180, 325, pos);
+		spawn2(603, timer, 180, 350, pos);
+		spawn2(603, timer, 180, 375, pos);
+		spawn2(603, timer, 180, 400, pos);
+		spawn2(603, timer, 180, 425, pos);
+		spawn2(603, timer, 180, 450, pos);
+		spawn2(603, timer, 180, 475, pos);
+		spawn2(603, timer, 180, 500, pos);
+		spawn2(603, timer, 270, 25, pos);
+		spawn2(603, timer, 270, 50, pos);
+		spawn2(603, timer, 270, 75, pos);
+		spawn2(603, timer, 270, 100, pos);
+		spawn2(603, timer, 270, 125, pos);
+		spawn2(603, timer, 270, 150, pos);
+		spawn2(603, timer, 270, 175, pos);
+		spawn2(603, timer, 270, 200, pos);
+		spawn2(603, timer, 270, 225, pos);
+		spawn2(603, timer, 270, 250, pos);
+		spawn2(603, timer, 270, 275, pos);
+		spawn2(603, timer, 270, 300, pos);
+		spawn2(603, timer, 270, 325, pos);
+		spawn2(603, timer, 270, 350, pos);
+		spawn2(603, timer, 270, 375, pos);
+		spawn2(603, timer, 270, 400, pos);
+		spawn2(603, timer, 270, 425, pos);
+		spawn2(603, timer, 270, 450, pos);
+		spawn2(603, timer, 270, 475, pos);
+		spawn2(603, timer, 270, 500, pos);
 	}
 	
 	function Despawn(uid){
