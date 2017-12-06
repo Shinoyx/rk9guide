@@ -766,7 +766,7 @@ module.exports = function rk9guide(dispatch) {
 	}
 	
 	function initialize() {
-		enabled = true;
+		secondcounter = 0;
 		firstskill = 0;
 		secondskill = 0;
 		tempskill = 0;
