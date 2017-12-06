@@ -59,7 +59,12 @@ V1.10
 - Added toggle function for item spawn
 - Added function to call out only last boss in out wave mechs
 
+V1.11
+- Changed last boss to mini flowers with outline
+
+V1.12
+- Added item spawn for 2nd boss NM
 
 # Future updates
-- 2nd Boss orbs line
+- 2nd Boss orbs line (HM)
 - Streamer friendly
