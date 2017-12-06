@@ -820,7 +820,7 @@ module.exports = function rk9guide(dispatch) {
 		uid--;
 	}
 	
-	function secondbossnormalmode(pos){
+	function secondbossorbs(pos, timer){
 		spawn2(603, timer, 0, 25, pos);
 		spawn2(603, timer, 0, 50, pos);
 		spawn2(603, timer, 0, 75, pos);
