@@ -300,6 +300,9 @@ module.exports = function rk9guide(dispatch) {
 						timer = 12000;
 						secondbossorbs(event, timer);
 						secondcounter++;
+						setTimeout(function(){
+							secondcounter = 0;
+						}, 15000);
 					} else if (secondcounter === 1) {
 						timer = 8000;
 						secondbossorbs(event, timer);
