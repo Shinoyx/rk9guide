@@ -76,6 +76,8 @@ V1.11
 V1.12
 - Added item spawn for 2nd boss NM
 
+V1.13
+- Added item spawn for 2nd boss HM (YET TO TEST OUT)
+
 # Future updates
-- 2nd Boss orbs line (HM)
-- Streamer friendly
+- Streamer friendly command to turn off itemhelper/partynotice
