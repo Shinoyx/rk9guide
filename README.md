@@ -6,11 +6,12 @@
 
 ** TO SEE ARROWS ON THE SCRIPT ** Credits to fortunefavor
 - I have yet to test this. Use this at your own risk.
-Navigate to the TERA\Client\S1Game\Localization\USA folder.
-Rename the GFxUI into something else.
-Going up one folder and enter the INT folder.
-Copy both files from there and paste them into the USA folder.
-Rename the ExampleGame.int and GFxUI.int into ExampleGame.usa and GFxUI.usa, respectively.
+- Navigate to the TERA\Client\S1Game\Localization\USA folder.
+- Rename the GFxUI into something else.
+- Going up one folder and enter the INT folder.
+- Copy both files from there and paste them into the USA folder.
+- Rename the ExampleGame.int and GFxUI.int into ExampleGame.usa and GFxUI.usa, respectively.
+
 Your in game font will change but the arrows will show. This also improves font size so you don't squint while reading stuff in game lol.
 
 
