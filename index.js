@@ -157,7 +157,6 @@ module.exports = function rk9guide(dispatch) {
 		whichmode = 0,
 		isTank = false,
 		warned = false,
-		warning = false,
 		checklastboss = true,
 		insidezone = false,
 		insidemap = false,
@@ -774,6 +773,7 @@ module.exports = function rk9guide(dispatch) {
 		secondskill = 0;
 		tempskill = 0;
 		isInv = 0;
+		warned = false,
 		checklastboss = true;
 	}		
 	
