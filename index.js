@@ -297,15 +297,15 @@ module.exports = function rk9guide(dispatch) {
 			} else if (whichmode === 2 && whichboss === 2) {
 				if(event.npc === 2007) {
 					if(secondcounter === 0) {
-						timer = 15000;
+						timer = 12000;
 						secondbossorbs(event, timer);
 						secondcounter++;
 					} else if (secondcounter === 1) {
-						timer = 10000;
+						timer = 8000;
 						secondbossorbs(event, timer);
 						secondcounter++;
 					} else if (secondcounter === 2) {
-						timer = 5000;
+						timer = 4000;
 						secondbossorbs(event, timer);
 						secondcounter = 0;
 					}
