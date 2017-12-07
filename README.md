@@ -4,8 +4,8 @@
 - *Please download latest version for HM/EM for NA/EU servers as there is a change in packet defination
 - *Please also update your tera data file to the latest from https://github.com/meishuu/tera-data
 
-*TAKE NOTE - last boss protocol message IN+OUT means boss will be hitting inner then outer. NOT the safe zones.
-If you wish to have safe zones called out, feel free to drop me a pm on discord.
+Last boss protocol message has been updated to SAFEZONES. IN+OUT means boss will be hitting outer then inner.
+If you wish to have the older version where call outs are what the boss is doing, feel free to drop me a pm on discord.
 
 Credits to teralove and soler91 for their VS guides
 
