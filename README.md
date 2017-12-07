@@ -15,9 +15,6 @@
 Your in game font will change but the arrows will show. This also improves font size so you don't squint while reading stuff in game lol.
 
 
-
-Your in game font will change but the arrows will show. This also improves font size so you don't squint while reading stuff in game lol.
-
 Last boss protocol message has been updated to SAFEZONES. IN+OUT means boss will be hitting outer then inner.
 If you wish to have the older version where call outs are what the boss is doing, feel free to drop me a pm on discord.
 
