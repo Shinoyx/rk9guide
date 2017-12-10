@@ -20,10 +20,6 @@ If you wish to have the older version where call outs are what the boss is doing
 
 Credits to teralove and soler91 for their VS guides
 
-Call out attacks from RK-9 Bosses all 3 of them including both NORMAL MODE & HARD MODE & EXTREME MODE
-
-Script automatically detects bosses and which dungeon hard or normal.
-
 Please report any issues to me either here or on discord :)
 
 # Commands 
@@ -36,9 +32,7 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
 - !info to show all the above settings ON or OFF
 - !help to show what commands are there in the RK9 guide module
 - !debug FOR DEBUGGING PURPOSES
-
-# Known issues
-- All fixed as of 15th Nov
+- !stream to enable streaming mode which will remove all item spawn as well as remove party notice pop ups
 
 # Patch Notes
 V1.00
@@ -77,7 +71,8 @@ V1.12
 - Added item spawn for 2nd boss NM
 
 V1.13
-- Added item spawn for 2nd boss HM (YET TO TEST OUT)
+- Added item spawn for 2nd boss HM
 
-# Future updates
-- Streamer friendly command to turn off itemhelper/partynotice
+V1.14 (YET TO TEST OUT)
+- Added estimated shield warning call out for last boss (NM & HM)
+- Added streamer mode 
