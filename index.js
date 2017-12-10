@@ -230,7 +230,7 @@ module.exports = function rk9guide(dispatch) {
 	command.add('stream', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
 		streamenabled = !streamenabled;
-		command.message((sendToParty ? 'Stream mode Enabled' : 'Stream mode Disabled'));
+		command.message((streamenabled ? 'Stream mode Enabled' : 'Stream mode Disabled'));
 	});
 	
 	command.add('lastbosstoparty', () => {
