@@ -494,6 +494,11 @@ module.exports = function rk9guide(dispatch) {
 							sendMessage(ThirdBossActionsTank[event.skill].msg);
 							}
 						}
+						if(event.skill === 1189020969) {
+							setTimeout(function(){
+							sendMessage('SHIELD COMING IN 10SEC');
+							}, 100000);
+						}
 						if(itemhelper) {
 						if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
 							Spawnitem(556, 3000, 190,200);
@@ -545,6 +550,11 @@ module.exports = function rk9guide(dispatch) {
 						if (ThirdBossActionsTankHM[event.skill]) {
 						sendMessage(ThirdBossActionsTankHM[event.skill].msg);
 						}
+					}
+					if(event.skill === 1202128169) {
+						setTimeout(function(){
+						sendMessage('SHIELD COMING IN 10SEC');
+						}, 100000);
 					}
 					if(itemhelper) {
 					if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
