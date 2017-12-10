@@ -163,6 +163,7 @@ module.exports = function rk9guide(dispatch) {
 		sendToParty = false,
 		lastbosstoparty = false,
 		enabled = true,
+	   	streamenabled = false,
 		itemhelper = true;
 		
 	// DO NOT EDIT IF UN-SURE
@@ -226,6 +227,12 @@ module.exports = function rk9guide(dispatch) {
 		command.message((sendToParty ? 'Messages will be sent to the party' : 'Only you will see messages'));
 	});
 	
+	command.add('stream', () => {
+		if(!insidemap) { command.message('You must be inside RK-9'); return; }
+		streamenabled = !streamenabled;
+		command.message((sendToParty ? 'Stream mode Enabled' : 'Stream mode Disabled'));
+	});
+	
 	command.add('lastbosstoparty', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
 		lastbosstoparty = !lastbosstoparty;
@@ -246,17 +253,17 @@ module.exports = function rk9guide(dispatch) {
 	
 	command.add('info', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message(mode + '<br> Boss notice: ' + enabled + '<br> Party Notice: ' + sendToParty + '<br> Lastboss to party notice: ' + lastbosstoparty + '<br> Item helper: ' + itemhelper + '<br> Tank Mode: ' + isTank + '<br>');
+		command.message(mode + '<br> Boss notice: ' + enabled + '<br> Party Notice: ' + sendToParty + '<br> Lastboss to party notice: ' + lastbosstoparty + '<br> Item helper: ' + itemhelper + '<br> Tank Mode: ' + isTank + '<br> Stream mode: ' + streamenabled + '<br>');
 	});
 	
 	command.add('help', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message('<br>!rk9 to toggle module <br> - !party to toggle party call out <br> - !lastbosstoparty to toggle lastboss callouts <br> - !itemhelper to toggle item spawn on ground <br> - !info to show Enabled or Disabled <br> - !tank to toggle Tank Mode <br>');
+		command.message('<br>!rk9 to toggle module <br> - !party to toggle party call out <br> - !lastbosstoparty to toggle lastboss callouts <br> - !itemhelper to toggle item spawn on ground <br> - !info to show Enabled or Disabled <br> - !tank to toggle Tank Mode <br> - !stream to toggle stream mode <br>');
 	});
 	
 	command.add('debug', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message('<br> InsideZone ' + insidezone + '<br> InsideMap ' + insidemap + '<br> Whichmode ' + whichmode + '<br> WhichBoss ' + whichboss + '<br> Isinv ' + isInv);
+		command.message('<br> InsideZone ' + insidezone + '<br> InsideMap ' + insidemap + '<br> Whichmode ' + whichmode + '<br> WhichBoss ' + whichboss + '<br> Isinv ' + isInv + '<br> Itemhelper ' + itemhelper + '<br>');
 	});
 	
 	dispatch.hook('C_PLAYER_LOCATION', 1, (event) => {
@@ -286,7 +293,7 @@ module.exports = function rk9guide(dispatch) {
 	
 	dispatch.hook('S_SPAWN_NPC', 1, (event) => {
 		if(!enabled) return;
-		if(!itemhelper) return;
+		if(!itemhelper || streamenabled) return;
 		if(insidemap && insidezone) {
 			if(whichmode === 1 && whichboss === 2) {
 				if(event.npc === 2007) {
@@ -499,7 +506,7 @@ module.exports = function rk9guide(dispatch) {
 							sendMessage('SHIELD COMING IN 10SEC');
 							}, 100000);
 						}
-						if(itemhelper) {
+						if(itemhelper && !streamenabled) {
 						if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
 							Spawnitem(556, 3000, 190,200);
 							Spawnitem(556, 3000, 10,200);
@@ -556,7 +563,7 @@ module.exports = function rk9guide(dispatch) {
 						sendMessage('SHIELD COMING IN 10SEC');
 						}, 100000);
 					}
-					if(itemhelper) {
+					if(itemhelper && !streamenabled) {
 					if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
 						Spawnitem(556, 3000, 190,200);
 						Spawnitem(556, 3000, 10,200);
@@ -597,7 +604,7 @@ module.exports = function rk9guide(dispatch) {
 			} else return;
 		}
 		} else if (event.stage === 3) {
-			if(whichmode != 0 && whichboss === 3 && itemhelper) {
+			if(whichmode != 0 && whichboss === 3 && itemhelper && !streamenabled) {
 				if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
 					Spawnitem(603, 3000, 190,210);
 					Spawnitem(603, 3000, 190,230);
@@ -685,7 +692,7 @@ module.exports = function rk9guide(dispatch) {
 				}
 			}
 		} else if (event.stage === 1) {
-			if(whichmode === 2 && whichboss === 1 && itemhelper) {
+			if(whichmode === 2 && whichboss === 1 && itemhelper && !streamenabled) {
 					if(event.skill === 1202128167) { //Safe front right
 						Spawnitem(559, 9000, 338,120);
 					} else if (event.skill === 1202128163) { //Safe front right														
@@ -762,6 +769,8 @@ module.exports = function rk9guide(dispatch) {
 				channel: 21, //21 = p-notice, 1 = party, 2 = guild
 				message: msg
 			});
+		} else if(streamenabled) {
+			command.message(msg);
 		} else {
 			dispatch.toClient('S_CHAT', 1, {
 				channel: 21, //21 = p-notice, 1 = party
