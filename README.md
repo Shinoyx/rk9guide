@@ -29,22 +29,28 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
 # Extra Notes
 <details>
 
-- Script doesn't work?
 <details>
-1. Please update your tera data file to the latest from https://github.com/meishuu/tera-data
+  <summary>Script doesn't work?</summary>
+  
+  1. Please update your tera data file to the latest from https://github.com/meishuu/tera-data
 
-2. Make sure you are running the latest version of proxy
+  2. Make sure you are running the latest version of proxy
 
-3. Download the latest copy of RK9Guide
+  3. Download the latest copy of RK9Guide
 </details>
 
-- How do I view the arrows from the script?
 <details>
-  - Navigate to the TERA\Client\S1Game\Localization\USA folder.
-  - Rename the GFxUI into something else.
-  - Going up one folder and enter the INT folder.
-  - Copy both files from there and paste them into the USA folder.
-  - Rename the ExampleGame.int and GFxUI.int into ExampleGame.usa and GFxUI.usa, respectively.
+  <summary>How do I view the arrows from the script?</summary>
+  
+    - Navigate to the TERA\Client\S1Game\Localization\USA folder.
+    
+    - Rename the GFxUI into something else.
+    
+    - Going up one folder and enter the INT folder.
+    
+    - Copy both files from there and paste them into the USA folder.
+    
+    - Rename the ExampleGame.int and GFxUI.int into ExampleGame.usa and GFxUI.usa, respectively.
 </details>
 
 </details>
