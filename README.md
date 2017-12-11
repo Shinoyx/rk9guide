@@ -30,7 +30,7 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
 # Extra Notes
 <details>
 
-    <details>
+   <details>
       <summary>Script doesn't work?</summary>
 
         1. Please update your tera data file to the latest from https://github.com/meishuu/tera-data
@@ -38,9 +38,9 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
         2. Make sure you are running the latest version of proxy
 
         3. Download the latest copy of RK9Guide
-    </details>
+   </details>
 
-    <details>
+   <details>
       <summary>How do I view the arrows from the script?</summary>
 
         - Navigate to the TERA\Client\S1Game\Localization\USA folder.
@@ -52,7 +52,7 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
         - Copy both files from there and paste them into the USA folder.
 
         - Rename the ExampleGame.int and GFxUI.int into ExampleGame.usa and GFxUI.usa, respectively.
-    </details>
+   </details>
 
 </details>
 
