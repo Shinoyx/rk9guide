@@ -32,11 +32,11 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
 <details>
   <summary>Script doesn't work?</summary>
   
-  1. Please update your tera data file to the latest from https://github.com/meishuu/tera-data
+    1. Please update your tera data file to the latest from https://github.com/meishuu/tera-data
 
-  2. Make sure you are running the latest version of proxy
+    2. Make sure you are running the latest version of proxy
 
-  3. Download the latest copy of RK9Guide
+    3. Download the latest copy of RK9Guide
 </details>
 
 <details>
