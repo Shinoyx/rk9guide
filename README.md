@@ -76,3 +76,7 @@ V1.13
 V1.14 (YET TO TEST OUT)
 - Added estimated shield warning call out for last boss (NM & HM)
 - Added streamer mode 
+
+V1.15
+- Reformatted command message as chat box isn't HTML anymore
+- Increased HM shield warning by 5 sec 
