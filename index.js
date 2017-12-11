@@ -253,17 +253,34 @@ module.exports = function rk9guide(dispatch) {
 	
 	command.add('info', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message(mode + '<br> Boss notice: ' + enabled + '<br> Party Notice: ' + sendToParty + '<br> Lastboss to party notice: ' + lastbosstoparty + '<br> Item helper: ' + itemhelper + '<br> Tank Mode: ' + isTank + '<br> Stream mode: ' + streamenabled + '<br>');
+		command.message(mode);
+		command.message('RK9 Guide: ' + enabled);
+		command.message('Party Notice: ' + sendToParty);
+		command.message('Lastboss to party notice: ' + lastbosstoparty);
+		command.message('Item helper: ' + itemhelper);
+		command.message('Tank Mode: ' + isTank);
+		command.message('Stream mode: ' + streamenabled);
 	});
 	
 	command.add('help', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message('<br>!rk9 to toggle module <br> - !party to toggle party call out <br> - !lastbosstoparty to toggle lastboss callouts <br> - !itemhelper to toggle item spawn on ground <br> - !info to show Enabled or Disabled <br> - !tank to toggle Tank Mode <br> - !stream to toggle stream mode <br>');
+		command.message('!rk9 to toggle module');
+		command.message('!party to toggle party call outs');
+		command.message('!lastbosstoparty to toggle lastboss protocol callouts');
+		command.message('!itemhelper to toggle item spawn on ground');
+		command.message('!info to show which module is Enabled or Disabled');
+		command.message('!tank to manually toggle Tank Mode');
+		command.message('!stream to toggle stream mode');
 	});
 	
 	command.add('debug', () => {
 		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message('<br> InsideZone ' + insidezone + '<br> InsideMap ' + insidemap + '<br> Whichmode ' + whichmode + '<br> WhichBoss ' + whichboss + '<br> Isinv ' + isInv + '<br> Itemhelper ' + itemhelper + '<br>');
+		command.message('InsideZone: ' + insidezone);
+		command.message('InsideMap: ' + insidemap);
+		command.message('Whichmode: ' + whichmode);
+		command.message('WhichBoss: ' + whichboss);
+		command.message('IsInv: ' + isInv);
+		command.message('Itemhelper: ' + itemhelper);
 	});
 	
 	dispatch.hook('C_PLAYER_LOCATION', 1, (event) => {
@@ -561,7 +578,7 @@ module.exports = function rk9guide(dispatch) {
 					if(event.skill === 1202128169) {
 						setTimeout(function(){
 						sendMessage('SHIELD COMING IN 10SEC');
-						}, 100000);
+						}, 105000);
 					}
 					if(itemhelper && !streamenabled) {
 					if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
