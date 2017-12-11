@@ -73,9 +73,9 @@ V1.12
 V1.13
 - Added item spawn for 2nd boss HM
 
-V1.14 (YET TO TEST OUT)
+V1.14
 - Added estimated shield warning call out for last boss (NM & HM)
-- Added streamer mode 
+- Added streamer mode (YET TO TEST OUT)
 
 V1.15
 - Reformatted command message as chat box isn't HTML anymore
