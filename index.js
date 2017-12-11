@@ -390,12 +390,12 @@ module.exports = function rk9guide(dispatch) {
 			firstskill = 'OUT';
 			tempskill = 'OUT';
 			checklastboss = false;
-			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 3000); }
+			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 3000); }
 		} else if (msgId === 9935303) {
 			firstskill = 'IN';
 			tempskill = 'IN';
 			checklastboss = false;
-			if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 3000); }
+			if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 3000); }
 		} else if (msgId === 9935304) {
 			firstskill = 'WAVE';
 			tempskill = 'WAVE';
@@ -415,14 +415,14 @@ module.exports = function rk9guide(dispatch) {
 					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
-					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 8000); }
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 8000); }
 				} else if(dungeonmsg === 935302) {
 					firstskill = 'IN';
 					tempskill = 'IN';
 					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
-					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 8000); }
+					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 8000); }
 				} else if(dungeonmsg === 935303) {
 					firstskill = 'WAVE';
 					tempskill = 'WAVE';
@@ -438,14 +438,14 @@ module.exports = function rk9guide(dispatch) {
 					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
-					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 8000); }
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 8000); }
 				} else if(dungeonmsg === 935302) {
 					secondskill = 'IN';
 					tempskill = 'IN';
 					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
-					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 8000); }
+					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 8000); }
 				} else if(dungeonmsg === 935303) {
 					secondskill = 'WAVE';
 					tempskill = 'WAVE';
