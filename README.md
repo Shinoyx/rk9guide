@@ -1,26 +1,13 @@
 # RK9-Guide
 
-(1st Dec 2017) 
-- *Please download latest version for HM/EM for NA/EU servers as there is a change in packet defination
-- *Please also update your tera data file to the latest from https://github.com/meishuu/tera-data
+Donations:
+[![paypal](https://www.paypalobjects.com/en_GB/SG/i/btn/btn_paynowCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JW3A7NS4W7BRY)
 
-** TO SEE ARROWS ON THE SCRIPT ** Credits to fortunefavor
-- I have yet to test this. Use this at your own risk.
-- Navigate to the TERA\Client\S1Game\Localization\USA folder.
-- Rename the GFxUI into something else.
-- Going up one folder and enter the INT folder.
-- Copy both files from there and paste them into the USA folder.
-- Rename the ExampleGame.int and GFxUI.int into ExampleGame.usa and GFxUI.usa, respectively.
+*This is OPTIONAL and purely out of goodwill. Thank you for your support!
 
-Your in game font will change but the arrows will show. This also improves font size so you don't squint while reading stuff in game lol.
+Can't donate? No worries, you can also support me through in-game currency!
 
-
-Last boss protocol message has been updated to SAFEZONES. IN+OUT means boss will be hitting outer then inner.
-If you wish to have the older version where call outs are what the boss is doing, feel free to drop me a pm on discord.
-
-Credits to teralove and soler91 for their VS guides
-
-Please report any issues to me either here or on discord :)
+Feel free to pm me on discord if you have any issue or bug @Shinoyx#2674
 
 # Commands 
 Only usable in the RK9 Map. Using of commands outside map will return undefine command.
