@@ -22,6 +22,8 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
 - !stream to enable streaming mode which will remove all item spawn as well as remove party notice pop ups
 
 # Patch Notes
+<details>
+
 V1.00
 - Created RK-9 Guide NORMAL MODE
 
@@ -67,3 +69,5 @@ V1.14
 V1.15
 - Reformatted command message as chat box isn't HTML anymore
 - Increased HM shield warning by 5 sec 
+
+<details>
