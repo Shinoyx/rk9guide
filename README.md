@@ -74,3 +74,5 @@ V1.14
 V1.15
 - Reformatted command message as chat box isn't HTML anymore
 - Increased HM shield warning by 5 sec 
+
+</details>
