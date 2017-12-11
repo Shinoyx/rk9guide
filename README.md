@@ -9,7 +9,10 @@ Can't donate? No worries, you can also support me through in-game currency!
 
 Feel free to pm me on discord if you have any issue or bug @Shinoyx#2674
 
+
 # Commands 
+<details>
+
 Only usable in the RK9 Map. Using of commands outside map will return undefine command.
 - !rk9 to toggle module (DEFAULT: ON)
 - !party to toggle party notice (DEFAULT: SELF ONLY)
@@ -69,5 +72,3 @@ V1.14
 V1.15
 - Reformatted command message as chat box isn't HTML anymore
 - Increased HM shield warning by 5 sec 
-
-<details>
