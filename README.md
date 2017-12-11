@@ -24,6 +24,8 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
 - !debug FOR DEBUGGING PURPOSES
 - !stream to enable streaming mode which will remove all item spawn as well as remove party notice pop ups
 
+<details>
+
 # Patch Notes
 <details>
 
