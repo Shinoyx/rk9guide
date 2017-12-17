@@ -13,7 +13,7 @@ Feel free to pm me on discord if you have any issue or bug @Shinoyx#2674
 # Commands 
 <details>
 
-Only usable in the RK9 Map. Using of commands outside map will return undefine command.
+Only usable in the RK9 Map. Using of commands outside map will return undefined command.
 
     - !rk9 to toggle module (DEFAULT: ON)
     - !party to toggle party notice (DEFAULT: SELF ONLY)
@@ -105,10 +105,14 @@ Only usable in the RK9 Map. Using of commands outside map will return undefine c
 
     V1.14
     - Added estimated shield warning call out for last boss (NM & HM)
-    - Added streamer mode (YET TO TEST OUT)
+    - Added streamer mode
 
     V1.15
     - Reformatted command message as chat box isn't HTML anymore
     - Increased HM shield warning by 5 sec 
+
+    V1.16
+    - Reduced last boss NM shield warning by 5 sec
+    - Fixed improper shield warning call outs when boss die or resets
 
 </details>
