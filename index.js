@@ -348,6 +348,7 @@ module.exports = function rk9guide(dispatch) {
 		{
 			whichboss = 0;
 			warned = false;
+			clearTimeout(shieldwarning);
 			return;
 		}
 		}
@@ -519,7 +520,7 @@ module.exports = function rk9guide(dispatch) {
 							}
 						}
 						if(event.skill === 1189020969) {
-							setTimeout(function(){
+							var shieldwarning = setTimeout(function(){
 							sendMessage('SHIELD COMING IN 10SEC');
 							}, 95000);
 						}
@@ -576,7 +577,7 @@ module.exports = function rk9guide(dispatch) {
 						}
 					}
 					if(event.skill === 1202128169) {
-						setTimeout(function(){
+						var shieldwarning = setTimeout(function(){
 						sendMessage('SHIELD COMING IN 10SEC');
 						}, 105000);
 					}
@@ -811,6 +812,7 @@ module.exports = function rk9guide(dispatch) {
 		isInv = 0;
 		warned = false,
 		checklastboss = true;
+		clearTimeout(shieldwarning);
 	}		
 	
 	function spawn2(item, time, degrees, radius, loc) {
