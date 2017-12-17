@@ -948,4 +948,13 @@ module.exports = function rk9guide(dispatch) {
 			unk : 0
 		});
 	}
+	
+	dispatch.hook('S_CHAT', 2, event =>
+	{
+		if(insidezone && insidemap)
+		{
+			if(event.channel === 21) event.channel = 1
+			return true
+		}
+	})
 }
