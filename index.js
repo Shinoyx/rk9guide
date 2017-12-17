@@ -521,7 +521,7 @@ module.exports = function rk9guide(dispatch) {
 						if(event.skill === 1189020969) {
 							setTimeout(function(){
 							sendMessage('SHIELD COMING IN 10SEC');
-							}, 100000);
+							}, 95000);
 						}
 						if(itemhelper && !streamenabled) {
 						if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
