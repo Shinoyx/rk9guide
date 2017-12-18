@@ -164,6 +164,7 @@ module.exports = function rk9guide(dispatch) {
 		lastbosstoparty = false,
 		enabled = true,
 	   	streamenabled = false,
+	    	shieldwarning,
 		itemhelper = true;
 		
 	// DO NOT EDIT IF UN-SURE
@@ -520,7 +521,7 @@ module.exports = function rk9guide(dispatch) {
 							}
 						}
 						if(event.skill === 1189020969) {
-							var shieldwarning = setTimeout(function(){
+							shieldwarning = setTimeout(function(){
 							sendMessage('SHIELD COMING IN 10SEC');
 							}, 95000);
 						}
@@ -577,7 +578,7 @@ module.exports = function rk9guide(dispatch) {
 						}
 					}
 					if(event.skill === 1202128169) {
-						var shieldwarning = setTimeout(function(){
+						shieldwarning = setTimeout(function(){
 						sendMessage('SHIELD COMING IN 10SEC');
 						}, 105000);
 					}
