@@ -954,10 +954,14 @@ module.exports = function rk9guide(dispatch) {
 	
 	dispatch.hook('S_CHAT', 2, event =>
 	{
-		if(insidezone && insidemap)
+		if(insidezone && insidemap && event.channel === 21 && event.authorID.notEquals(cid))
 		{
-			if(event.channel === 21) event.channel = 1
+			event.channel = 1
 			return true
 		}
+	})
+	dispatch.hook('C_ASK_INTERACTIVE', 2, event =>
+	{
+		if(event.name === 'DG-Guide') return false
 	})
 }
