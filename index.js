@@ -960,4 +960,8 @@ module.exports = function rk9guide(dispatch) {
 			return true
 		}
 	})
+	dispatch.hook('C_ASK_INTERACTIVE', 2, event =>
+	{
+		if(event.name === 'DG-Guide') return false
+	})
 }
