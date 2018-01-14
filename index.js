@@ -170,6 +170,7 @@ module.exports = function rk9guide(dispatch) {
 	// DO NOT EDIT IF UN-SURE
 	dispatch.hook('S_LOAD_TOPO', 1, (event) => {				// Welcome Message upon entering dungeon
         zone = event.zone;										// Edit Message if neccessary
+	clearTimeout(shieldwarning);
 		if (zone === mapID[0]) {								
 			insidemap = true;
 			whichmode = 1; //1 = NM
