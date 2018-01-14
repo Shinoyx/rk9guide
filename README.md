@@ -1,5 +1,8 @@
 # RK9-Guide
 
+[14th Jan] 
+Added fix to https://github.com/meishuu/tera-data (Not-tested) please update script. Pm me if you face any issue.
+
 Donations:
 [![paypal](https://www.paypalobjects.com/en_GB/SG/i/btn/btn_paynowCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JW3A7NS4W7BRY)
 
