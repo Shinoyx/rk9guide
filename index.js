@@ -345,6 +345,9 @@ module.exports = function rk9guide(dispatch) {
 	dispatch.hook('S_BOSS_GAGE_INFO', 3, (event) => {					// DO NOT EDIT IF UN-SURE
 		if (!enabled) return;
 		bosshp = event.curHp / event.maxHp;
+		if(bosshp === 1) {
+			initialize();	
+		}
 		if(whichboss != 0) {
 		if (bosshp <= 0)
 		{
