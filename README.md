@@ -10,6 +10,8 @@ Donations:
 
 Can't donate? No worries, you can also support me through in-game currency!
 
+Feel free to check out and support my YouTube channel as well! https://www.youtube.com/user/angxng1995/
+
 Feel free to pm me on discord if you have any issue or bug @Shinoyx#2674
 
 
