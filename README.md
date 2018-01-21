@@ -63,8 +63,7 @@ Only usable in the RK9 Map. Using of commands outside map will return undefined 
 
 # Known bugs / Issues
 <details>
-    <summary>Last Boss Call outs</summary>
-        - Last Boss HM call outs sometimes buggy (RARE CASE) https://github.com/Shinoyx/rk9guide/issues/16
+    
 </details>
 
 # Patch Notes
