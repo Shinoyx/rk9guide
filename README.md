@@ -119,4 +119,7 @@ Only usable in the RK9 Map. Using of commands outside map will return undefined 
     - Reduced last boss NM shield warning by 5 sec
     - Fixed improper shield warning call outs when boss die or resets
 
+    v1.17
+    - Fixed last boss wrong call outs
+
 </details>
