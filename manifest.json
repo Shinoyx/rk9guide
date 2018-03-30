@@ -1,0 +1,20 @@
+{
+	"files": {
+		"index.js": "1ffdf0965ab5b4f1e59652ac16d088ca955060825f19427423ed962f28d78f3c",
+		"module.json": "ce983048bdbf0da64cc03d5336490dfe3fa66f90d4a11aae9ea714e66357e919"
+	},
+	
+	"defs": {
+		"S_LOAD_TOPO": 1,
+		"S_LOGIN": 2,
+		"C_PLAYER_LOCATION": 1,
+		"S_SPAWN_NPC": 1,
+		"S_BOSS_GAGE_INFO": 3,
+		"S_DUNGEON_EVENT_MESSAGE": 1,
+		"S_QUEST_BALLOON": 1,
+		"S_ACTION_STAGE": 1,
+		"S_DESPAWN_COLLECTION": 1,
+		"S_CHAT": 2,
+		"C_ASK_INTERACTIVE": 2
+	}
+}
