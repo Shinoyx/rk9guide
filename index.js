@@ -133,7 +133,15 @@ const ThirdBossActionsTankHM = {
 	
 };
 
-module.exports = function rk9guide(dispatch) {
+module.exports = function rk9guidewrap(dispatch) {
+	if(!dispatch.base.protocolVersion)
+        dispatch.hook('C_CHECK_VERSION', 1, (event) => { rk9guide(dispatch); });
+    else
+        rk9guide(dispatch);
+}
+	
+	
+function rk9guide(dispatch) {
 	const command = Command(dispatch);
 	let firstskill = 0,
 		secondskill = 0,
@@ -141,7 +149,7 @@ module.exports = function rk9guide(dispatch) {
 		isInv = 0,
 		uid = 999999999,
 		time = 1000,
-	    	timer = 0,
+	    timer = 0,
 		secondcounter = 0,
 		cid,
 		name,
@@ -164,11 +172,11 @@ module.exports = function rk9guide(dispatch) {
 		lastbosstoparty = false,
 		enabled = true,
 	   	streamenabled = false,
-	    	shieldwarning,
+	    shieldwarning,
 		itemhelper = true;
 		
 	// DO NOT EDIT IF UN-SURE
-	dispatch.hook('S_LOAD_TOPO', 1, (event) => {				// Welcome Message upon entering dungeon
+	dispatch.hook('S_LOAD_TOPO', 3, (event) => {				// Welcome Message upon entering dungeon
         zone = event.zone;										// Edit Message if neccessary
 	clearTimeout(shieldwarning);
 		if (zone === mapID[0]) {								
@@ -188,7 +196,7 @@ module.exports = function rk9guide(dispatch) {
 			} else insidemap = false;
     });
 	
-	dispatch.hook('S_LOGIN', 2, (event) => {
+	dispatch.hook('S_LOGIN', (dispatch.base.majorPatchVersion >= 67) ? 10 : 9, (event) => {
         ({
             cid,
             model,
@@ -285,7 +293,7 @@ module.exports = function rk9guide(dispatch) {
 		command.message('Itemhelper: ' + itemhelper);
 	});
 	
-	dispatch.hook('C_PLAYER_LOCATION', 1, (event) => {
+	dispatch.hook('C_PLAYER_LOCATION', 2, (event) => {
         location = event;
     });
 	
@@ -310,7 +318,7 @@ module.exports = function rk9guide(dispatch) {
 		}
 	});*/
 	
-	dispatch.hook('S_SPAWN_NPC', 1, (event) => {
+	dispatch.hook('S_SPAWN_NPC', 5, (event) => {
 		if(!enabled) return;
 		if(!itemhelper || streamenabled) return;
 		if(insidemap && insidezone) {
@@ -483,7 +491,7 @@ module.exports = function rk9guide(dispatch) {
 		return;
 	 });
 	 
-	 dispatch.hook('S_ACTION_STAGE', 1, (event) => {								// DO NOT EDIT IF UN-SURE
+	 dispatch.hook('S_ACTION_STAGE', 4, (event) => {								// DO NOT EDIT IF UN-SURE
 		 if(!enabled) return;														// Main script for calling out attacks
 		 if(insidezone && insidemap) {
 			bossCurLocation = {x: event.x,y: event.y,z: event.z,w: event.w};
