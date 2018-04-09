@@ -197,11 +197,9 @@ function rk9guide(dispatch) {
     });
 	
 	dispatch.hook('S_LOGIN', (dispatch.base.majorPatchVersion >= 67) ? 10 : 9, (event) => {
-        ({
-            cid,
-            model,
-            name
-        } = event);
+		cid = event.gameId;
+		model = event.templateId;
+		name = event.name;
 		job = model % 100
 		if (job === 2 || job === 11) isTank = true;				// Check if class = Lancer / Brawler
 		else isTank = false;
@@ -491,7 +489,7 @@ function rk9guide(dispatch) {
 		return;
 	 });
 	 
-	 dispatch.hook('S_ACTION_STAGE', 4, (event) => {								// DO NOT EDIT IF UN-SURE
+	 dispatch.hook('S_ACTION_STAGE', 3, (event) => {								// DO NOT EDIT IF UN-SURE
 		 if(!enabled) return;														// Main script for calling out attacks
 		 if(insidezone && insidemap) {
 			bossCurLocation = {x: event.x,y: event.y,z: event.z,w: event.w};
