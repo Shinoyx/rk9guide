@@ -321,12 +321,12 @@ function rk9guide(dispatch) {
 		if(!itemhelper || streamenabled) return;
 		if(insidemap && insidezone) {
 			if(whichmode === 1 && whichboss === 2) {
-				if(event.npc === 2007) {
+				if(event.templateId === 2007) {
 					timer = 5000;
 					secondbossorbs(event, timer);
 				}
 			} else if (whichmode === 2 && whichboss === 2) {
-				if(event.npc === 2007) {
+				if(event.templateId === 2007) {
 					if(secondcounter === 0) {
 						timer = 12000;
 						secondbossorbs(event, timer);
