@@ -6,7 +6,7 @@
 	
 	"defs": {
 		"S_LOAD_TOPO": 3,
-		"S_LOGIN": [9, 10],
+		"S_LOGIN": 10,
 		"C_CHECK_VERSION": 1,
 		"C_PLAYER_LOCATION": 2,
 		"S_SPAWN_NPC": 5,
