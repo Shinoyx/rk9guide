@@ -851,7 +851,7 @@ function rk9guide(dispatch) {
 	
 	function Spawnitem(item, time, degrees, radius) {
 		let r = null, rads = null, finalrad = null, spawnx = null, spawny = null, pos = null;
-		r = bossCurLocation.w
+		r = bossCurLocation.w;
 		rads = (degrees * Math.PI/180);
 		finalrad = r - rads;
 		spawnx = bossCurLocation.x + radius * Math.cos(finalrad);
