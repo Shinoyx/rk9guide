@@ -2,6 +2,7 @@
 /* Usable Sysbols ◎●←↑→↓↖↗↘↙ */
 
 const Command = require('command');
+const Vec3 = require('tera-vec3');
 const mapID = [9735, 9935];						// MAP ID to input [ Normal Mode , Hard Mode ]
 const HuntingZn = [735, 935]; 					// Add in your own Hunting Zone [ Normal Mode , Hard Mode ] 
 const BossID = [1000, 2000, 3000]; 				// Add in Boss Template ID [ 1st boss , 2nd Boss, 3rd Boss ]
@@ -291,7 +292,7 @@ function rk9guide(dispatch) {
 		command.message('Itemhelper: ' + itemhelper);
 	});
 	
-	dispatch.hook('C_PLAYER_LOCATION', 2, (event) => {
+	dispatch.hook('C_PLAYER_LOCATION', 3, (event) => {
         location = event;
     });
 	
@@ -316,7 +317,7 @@ function rk9guide(dispatch) {
 		}
 	});*/
 	
-	dispatch.hook('S_SPAWN_NPC', 5, (event) => {
+	dispatch.hook('S_SPAWN_NPC', 8, (event) => {
 		if(!enabled) return;
 		if(!itemhelper || streamenabled) return;
 		if(insidemap && insidezone) {
@@ -489,10 +490,10 @@ function rk9guide(dispatch) {
 		return;
 	 });
 	 
-	 dispatch.hook('S_ACTION_STAGE', 3, (event) => {								// DO NOT EDIT IF UN-SURE
+	 dispatch.hook('S_ACTION_STAGE', 4, (event) => {								// DO NOT EDIT IF UN-SURE
 		 if(!enabled) return;														// Main script for calling out attacks
 		 if(insidezone && insidemap) {
-			bossCurLocation = {x: event.x,y: event.y,z: event.z,w: event.w};
+			bossCurLocation = {x: event.loc.x,y: event.loc.y,z: event.loc.z,w: event.w};
 			if(event.stage === 0) {
 			if(whichmode === 1) {
 				if(whichboss === 1) {
@@ -826,22 +827,21 @@ function rk9guide(dispatch) {
 		clearTimeout(shieldwarning);
 	}		
 	
-	function spawn2(item, time, degrees, radius, loc) {
+	function spawn2(item, time, degrees, radius, loca) {
 		let r = null, rads = null, finalrad = null, spawnx = null, spawny = null, pos = null;
-		r = (loc.w / 0x8000) * Math.PI;
+		r = loca.w;
 		rads = (degrees * Math.PI/180);
 		finalrad = r - rads;
-		spawnx = loc.x + radius * Math.cos(finalrad);
-		spawny = loc.y + radius * Math.sin(finalrad);
+		spawnx = loca.loc.x + radius * Math.cos(finalrad);
+		spawny = loca.loc.y + radius * Math.sin(finalrad);
 		pos = {x:spawnx,y:spawny};
 		
-		dispatch.toClient('S_SPAWN_COLLECTION', 1, {
-			uid : uid,
-			item : item,
+		dispatch.toClient('S_SPAWN_COLLECTION', 4, {
+			gameId : uid,
+			id : item,
 			amount : 1,
-			x : pos.x,
-			y : pos.y,
-			z : loc.z,
+			loc : new Vec3(pos.x,pos.y,loca.loc.z),
+			w : r,
 			unk1 : 0,
 			unk2 : 0
 		});
@@ -851,20 +851,19 @@ function rk9guide(dispatch) {
 	
 	function Spawnitem(item, time, degrees, radius) {
 		let r = null, rads = null, finalrad = null, spawnx = null, spawny = null, pos = null;
-		r = (bossCurLocation.w / 0x8000) * Math.PI;
+		r = bossCurLocation.w
 		rads = (degrees * Math.PI/180);
 		finalrad = r - rads;
 		spawnx = bossCurLocation.x + radius * Math.cos(finalrad);
 		spawny = bossCurLocation.y + radius * Math.sin(finalrad);
 		pos = {x:spawnx,y:spawny};
 		
-		dispatch.toClient('S_SPAWN_COLLECTION', 1, {
-			uid : uid,
-			item : item,
+		dispatch.toClient('S_SPAWN_COLLECTION', 4, {
+			gameId : uid,
+			id : item,
 			amount : 1,
-			x : pos.x,
-			y : pos.y,
-			z : bossCurLocation.z,
+			loc : new Vec3(pos.x,pos.y,bossCurLocation.z),
+			w : r,
 			unk1 : 0,
 			unk2 : 0
 		});
