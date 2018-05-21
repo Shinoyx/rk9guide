@@ -1,6 +1,6 @@
 {
 	"files": {
-		"index.js": "7df8806295b0f113034fd9ad6df5754ff1ad9727a93280cecd121cd0c9a1521f",
+		"index.js": "d24ff03744d56746761680bbf2a0860bbc9dd4aee5b5c1850acddf019026b7c0",
 		"module.json": "ce983048bdbf0da64cc03d5336490dfe3fa66f90d4a11aae9ea714e66357e919"
 	},
 	
@@ -16,6 +16,8 @@
 		"S_ACTION_STAGE": 4,
 		"S_DESPAWN_COLLECTION": 1,
 		"S_CHAT": 2,
-		"C_ASK_INTERACTIVE": 2
+		"C_ASK_INTERACTIVE": 2,
+		"C_CHAT" : 1,
+		"S_SPAWN_COLLECTION 4" : 4
 	}
 }
