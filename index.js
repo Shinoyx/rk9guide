@@ -802,7 +802,7 @@ function rk9guide(dispatch) {
 		} else if(streamenabled) {
 			command.message(msg);
 		} else {
-			dispatch.toClient('S_CHAT', 1, {
+			dispatch.toClient('S_CHAT', 2, {
 				channel: 21, //21 = p-notice, 1 = party
 				authorName: 'DG-Guide',
 				message: msg
