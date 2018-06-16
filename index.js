@@ -164,6 +164,7 @@ function rk9guide(dispatch) {
 		job = -1,
 		whichboss = 0,
 		whichmode = 0,
+		kr = null,
 		isTank = false,
 		warned = false,
 		checklastboss = true,
@@ -202,6 +203,7 @@ function rk9guide(dispatch) {
 		model = event.templateId;
 		name = event.name;
 		job = model % 100
+		if(kr === null) kr = (dispatch.base.majorPatchVersion < 74) ? false : true;
 		if (job === 2 || job === 11) isTank = true;				// Check if class = Lancer / Brawler
 		else isTank = false;
 		setTimeout(function(){
@@ -290,6 +292,7 @@ function rk9guide(dispatch) {
 		command.message('WhichBoss: ' + whichboss);
 		command.message('IsInv: ' + isInv);
 		command.message('Itemhelper: ' + itemhelper);
+		command.message('KR: ' + kr);
 	});
 	
 	dispatch.hook('C_PLAYER_LOCATION', 3, (event) => {
@@ -490,63 +493,72 @@ function rk9guide(dispatch) {
 		return;
 	 });
 	 
-	 dispatch.hook('S_ACTION_STAGE', 4, (event) => {								// DO NOT EDIT IF UN-SURE
-		 if(!enabled) return;														// Main script for calling out attacks
+	 dispatch.hook('S_ACTION_STAGE', dispatch.base.majorPatchVersion < 74 ? 4 : 7, (event) => {								// DO NOT EDIT IF UN-SURE
+		 if(!enabled) return;																								// Main script for calling out attacks
 		 if(insidezone && insidemap) {
 			bossCurLocation = {x: event.loc.x,y: event.loc.y,z: event.loc.z,w: event.w};
+			let skillid = event.skill;
+			if(kr && whichmode === 1) {
+					if(event.skill.id - 352 >= 1000)	skillid = "118902" + (event.skill.id - 352);
+					else skillid = "1189020" + (event.skill.id - 352);
+			}
+			if(kr && whichmode === 2) {
+			if(event.skill.id + 6848 >= 1000)	skillid = "120212" + (event.skill.id + 6848);
+				else skillid = "1202120" + (event.skill.id + 6848);
+			}
 			if(event.stage === 0) {
 			if(whichmode === 1) {
 				if(whichboss === 1) {
-						if (FirstBossActions[event.skill]) {
-							sendMessage(FirstBossActions[event.skill].msg);
+						if (FirstBossActions[skillid]) {
+							sendMessage(FirstBossActions[skillid].msg);
 						}
 						if(isTank)
 						{
-							if (FirstBossActionsTank[event.skill]) {
-							sendMessage(FirstBossActionsTank[event.skill].msg);
+							if (FirstBossActionsTank[skillid]) {
+							sendMessage(FirstBossActionsTank[skillid].msg);
 							}
 						}
-						if(event.skill === 1189020957)
+						if(skillid === 1189020957)
 						{
 							setTimeout(function(){
 							sendMessage('JUMP!');
 						}, 12000); }
 				} else if (whichboss === 2) {
-						if (SecondBossActions[event.skill]) {
-							sendMessage(SecondBossActions[event.skill].msg);
+						if (SecondBossActions[skillid]) {
+							sendMessage(SecondBossActions[skillid].msg);
 						}
 						if(isTank)
 						{
-							if (SecondBossActionsTank[event.skill]) {
-							sendMessage(SecondBossActionsTank[event.skill].msg);
+							if (SecondBossActionsTank[skillid]) {
+							sendMessage(SecondBossActionsTank[skillid].msg);
 							}
 						}
 				} else if (whichboss === 3) {
-						if (ThirdBossActions[event.skill]) {
-							sendMessage(ThirdBossActions[event.skill].msg);
+						if (ThirdBossActions[skillid]) {
+							sendMessage(ThirdBossActions[skillid].msg);
 						}
 						if(isTank)
 						{
-							if (ThirdBossActionsTank[event.skill]) {
-							sendMessage(ThirdBossActionsTank[event.skill].msg);
+							if (ThirdBossActionsTank[skillid]) {
+							sendMessage(ThirdBossActionsTank[skillid].msg);
 							}
 						}
-						if(event.skill === 1189020969) {
+						if(skillid === 1189020969) {
 							shieldwarning = setTimeout(function(){
 							sendMessage('SHIELD COMING IN 10SEC');
 							}, 90000);
 						}
 						if(itemhelper && !streamenabled) {
-						if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
+						if(skillid === 1189020764 || skillid === 1189021764 || skillid === 1189020767 || skillid === 1189021767) {
 							Spawnitem(556, 3000, 190,200);
 							Spawnitem(556, 3000, 10,200);
-						} else if (event.skill === 1189020765 || event.skill === 1189021765 || event.skill === 1189020766 || event.skill === 1189021766) {
+						} else if (skillid === 1189020765 || skillid === 1189021765 || skillid === 1189020766 || skillid === 1189021766) {
 							Spawnitem(556, 3000, 170, 200);
 							Spawnitem(556, 3000, 350, 200);
-						} else if(event.skill === 1202127964 || event.skill === 1202128964 || event.skill === 1202127967 || event.skill === 1202128967) {
+						} else if(skillid === 1202127964 || skillid === 1202128964 || skillid === 1202127967 || skillid === 1202128967) {
 							Spawnitem(556, 3000, 190,200);
 							Spawnitem(556, 3000, 10,200);
-						} else if (event.skill === 1202127965 || event.skill === 1202128965 || event.skill === 1202127966 || event.skill === 1202128966) {
+						} else if (skillid === 1202127965 || skillid === 1202128965 || skillid === 1202127966 || skillid === 1202128966) {
 							Spawnitem(556, 3000, 170, 200);
 							Spawnitem(556, 3000, 350, 200);
 						}
@@ -554,60 +566,60 @@ function rk9guide(dispatch) {
 			} else return;
 		} else if (whichmode === 2) { //HARD MODE
 			if(whichboss === 1) {
-					if (FirstBossActionsHM[event.skill]) {
-						sendMessage(FirstBossActionsHM[event.skill].msg);
+					if (FirstBossActionsHM[skillid]) {
+						sendMessage(FirstBossActionsHM[skillid].msg);
 					}
 					if(isTank)
 					{
-						if (FirstBossActionsTankHM[event.skill]) {
-						sendMessage(FirstBossActionsTankHM[event.skill].msg);
+						if (FirstBossActionsTankHM[skillid]) {
+						sendMessage(FirstBossActionsTankHM[skillid].msg);
 						}
 					}
-					if(event.skill === 1202128157)
+					if(skillid === 1202128157)
 					{
 					setTimeout(function(){
 						sendMessage('JUMP!');
 					}, 12000); }
 			} else if (whichboss === 2) {
-					if (SecondBossActionsHM[event.skill]) {
-						sendMessage(SecondBossActionsHM[event.skill].msg);
+					if (SecondBossActionsHM[skillid]) {
+						sendMessage(SecondBossActionsHM[skillid].msg);
 					}
 					if(isTank)
 					{
-						if (SecondBossActionsTankHM[event.skill]) {
-						sendMessage(SecondBossActionsTankHM[event.skill].msg);
+						if (SecondBossActionsTankHM[skillid]) {
+						sendMessage(SecondBossActionsTankHM[skillid].msg);
 						}
 					}
 			} else if (whichboss === 3) {
-					if (ThirdBossActionsHM[event.skill]) {
-						sendMessage(ThirdBossActionsHM[event.skill].msg);
+					if (ThirdBossActionsHM[skillid]) {
+						sendMessage(ThirdBossActionsHM[skillid].msg);
 					}
 					if(isTank)
 					{
-						if (ThirdBossActionsTankHM[event.skill]) {
-						sendMessage(ThirdBossActionsTankHM[event.skill].msg);
+						if (ThirdBossActionsTankHM[skillid]) {
+						sendMessage(ThirdBossActionsTankHM[skillid].msg);
 						}
 					}
-					if(event.skill === 1202128169) {
+					if(skillid === 1202128169) {
 						shieldwarning = setTimeout(function(){
 						sendMessage('SHIELD COMING IN 10SEC');
 						}, 105000);
 					}
 					if(itemhelper && !streamenabled) {
-					if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
+					if(skillid === 1189020764 || skillid === 1189021764 || skillid === 1189020767 || skillid === 1189021767) {
 						Spawnitem(556, 3000, 190,200);
 						Spawnitem(556, 3000, 10,200);
-					} else if (event.skill === 1189020765 || event.skill === 1189021765 || event.skill === 1189020766 || event.skill === 1189021766) {
+					} else if (skillid === 1189020765 || skillid === 1189021765 || skillid === 1189020766 || skillid === 1189021766) {
 						Spawnitem(556, 3000, 170, 200);
 						Spawnitem(556, 3000, 350, 200);
-					} else if(event.skill === 1202127964 || event.skill === 1202128964 || event.skill === 1202127967 || event.skill === 1202128967) {
+					} else if(skillid === 1202127964 || skillid === 1202128964 || skillid === 1202127967 || skillid === 1202128967) {
 						Spawnitem(556, 3000, 190,200);
 						Spawnitem(556, 3000, 10,200);
-					} else if (event.skill === 1202127965 || event.skill === 1202128965 || event.skill === 1202127966 || event.skill === 1202128966) {
+					} else if (skillid === 1202127965 || skillid === 1202128965 || skillid === 1202127966 || skillid === 1202128966) {
 						Spawnitem(556, 3000, 170, 200);
 						Spawnitem(556, 3000, 350, 200);
 					}
-					if(event.skill === 1202128153) {
+					if(skillid === 1202128153) {
 						Spawnitem(603, 7000, 20, 300);
 						Spawnitem(603, 7000, 40, 300);
 						Spawnitem(603, 7000, 60, 300);
@@ -635,7 +647,7 @@ function rk9guide(dispatch) {
 		}
 		} else if (event.stage === 3) {
 			if(whichmode != 0 && whichboss === 3 && itemhelper && !streamenabled) {
-				if(event.skill === 1189020764 || event.skill === 1189021764 || event.skill === 1189020767 || event.skill === 1189021767) {
+				if(skillid === 1189020764 || skillid === 1189021764 || skillid === 1189020767 || skillid === 1189021767) {
 					Spawnitem(603, 3000, 190,210);
 					Spawnitem(603, 3000, 190,230);
 					Spawnitem(603, 3000, 190,250);
@@ -656,7 +668,7 @@ function rk9guide(dispatch) {
 					Spawnitem(603, 3000, 40,230);
 					Spawnitem(603, 3000, 50,240);
 					Spawnitem(603, 3000, 60,250);
-				} else if (event.skill === 1189020765 || event.skill === 1189021765 || event.skill === 1189020766 || event.skill === 1189021766) {
+				} else if (skillid === 1189020765 || skillid === 1189021765 || skillid === 1189020766 || skillid === 1189021766) {
 					Spawnitem(603, 3000, 170, 210);
 					Spawnitem(603, 3000, 170, 230);
 					Spawnitem(603, 3000, 170, 250);
@@ -677,7 +689,7 @@ function rk9guide(dispatch) {
 					Spawnitem(603, 3000, 320, 230);
 					Spawnitem(603, 3000, 310, 240);
 					Spawnitem(603, 3000, 300, 250);
-				} else if(event.skill === 1202127964 || event.skill === 1202128964 || event.skill === 1202127967 || event.skill === 1202128967) {
+				} else if(skillid === 1202127964 || skillid === 1202128964 || skillid === 1202127967 || skillid === 1202128967) {
 					Spawnitem(603, 3000, 190,210);
 					Spawnitem(603, 3000, 190,230);
 					Spawnitem(603, 3000, 190,250);
@@ -698,7 +710,7 @@ function rk9guide(dispatch) {
 					Spawnitem(603, 3000, 40,230);
 					Spawnitem(603, 3000, 50,240);
 					Spawnitem(603, 3000, 60,250);
-				} else if (event.skill === 1202127965 || event.skill === 1202128965 || event.skill === 1202127966 || event.skill === 1202128966) {
+				} else if (skillid === 1202127965 || skillid === 1202128965 || skillid === 1202127966 || skillid === 1202128966) {
 					Spawnitem(603, 3000, 170, 210);
 					Spawnitem(603, 3000, 170, 230);
 					Spawnitem(603, 3000, 170, 250);
@@ -723,69 +735,69 @@ function rk9guide(dispatch) {
 			}
 		} else if (event.stage === 1) {
 			if(whichmode === 2 && whichboss === 1 && itemhelper && !streamenabled) {
-					if(event.skill === 1202128167) { //Safe front right
+					if(skillid === 1202128167) { //Safe front right
 						Spawnitem(559, 9000, 338,120);
-					} else if (event.skill === 1202128163) { //Safe front right														
+					} else if (skillid === 1202128163) { //Safe front right														
 						Spawnitem(559, 9000, 338,120);
-					} else if (event.skill === 1202129167) { //Safe front right
+					} else if (skillid === 1202129167) { //Safe front right
 						Spawnitem(559, 9000, 338,120);
-					} else if (event.skill === 1202129163) { //Safe front right
+					} else if (skillid === 1202129163) { //Safe front right
 						Spawnitem(559, 9000, 338,120);
-					} else if (event.skill === 1202128174) { //Safe front left
+					} else if (skillid === 1202128174) { //Safe front left
 						Spawnitem(559, 9000, 23,120);
-					} else if (event.skill === 1202128162) { //Safe front left
+					} else if (skillid === 1202128162) { //Safe front left
 						Spawnitem(559, 9000, 23,120);
-					} else if (event.skill === 1202129174) { //Safe front left
+					} else if (skillid === 1202129174) { //Safe front left
 						Spawnitem(559, 9000, 23,120);
-					} else if (event.skill === 1202129162) { //Safe front left
+					} else if (skillid === 1202129162) { //Safe front left
 						Spawnitem(559, 9000, 23,120);
-					} else if (event.skill === 1202128172) { //Safe right back
+					} else if (skillid === 1202128172) { //Safe right back
 						Spawnitem(559, 9000, 248,120);
-					} else if (event.skill === 1202129172) { //Safe right back
+					} else if (skillid === 1202129172) { //Safe right back
 						Spawnitem(559, 9000, 248,120);
-					} else if (event.skill === 1202128160) { //Safe right back
+					} else if (skillid === 1202128160) { //Safe right back
 						Spawnitem(559, 9000, 248,120);
-					} else if (event.skill === 1202129160) { //Safe right back
+					} else if (skillid === 1202129160) { //Safe right back
 						Spawnitem(559, 9000, 248,120);
-					} else if (event.skill === 1202128159) { //Safe right front
+					} else if (skillid === 1202128159) { //Safe right front
 						Spawnitem(559, 9000, 293,120);
-					} else if (event.skill === 1202129159) { //Safe right front
+					} else if (skillid === 1202129159) { //Safe right front
 						Spawnitem(559, 9000, 293,120);
-					} else if (event.skill === 1202128171) { //Safe right front
+					} else if (skillid === 1202128171) { //Safe right front
 						Spawnitem(559, 9000, 293,120);
-					} else if (event.skill === 1202129171) { //Safe right front
+					} else if (skillid === 1202129171) { //Safe right front
 						Spawnitem(559, 9000, 293,120);
-					} else if (event.skill === 1202128173) { //Safe left back
+					} else if (skillid === 1202128173) { //Safe left back
 						Spawnitem(559, 9000, 113,120);
-					} else if (event.skill === 1202129173) { //Safe left back
+					} else if (skillid === 1202129173) { //Safe left back
 						Spawnitem(559, 9000, 113,120);
-					} else if (event.skill === 1202128165) { //Safe left back
+					} else if (skillid === 1202128165) { //Safe left back
 						Spawnitem(559, 9000, 113,120);
-					} else if (event.skill === 1202129165) { //Safe left back
+					} else if (skillid === 1202129165) { //Safe left back
 						Spawnitem(559, 9000, 113,120);
-					} else if (event.skill === 1202128166) { //Safe left front
+					} else if (skillid === 1202128166) { //Safe left front
 						Spawnitem(559, 9000, 68,120);
-					} else if (event.skill === 1202129166) { //Safe left front
+					} else if (skillid === 1202129166) { //Safe left front
 						Spawnitem(559, 9000, 68,120);	
-					} else if (event.skill === 1202128170) { //Safe left front
+					} else if (skillid === 1202128170) { //Safe left front
 						Spawnitem(559, 9000, 68,120);
-					} else if (event.skill === 1202129170) { //Safe left front
+					} else if (skillid === 1202129170) { //Safe left front
 						Spawnitem(559, 9000, 68,120);	
-					} else if (event.skill === 1202128169) { //Safe back left
+					} else if (skillid === 1202128169) { //Safe back left
 						Spawnitem(559, 9000, 158,120);
-					} else if (event.skill === 1202129169) { //Safe back left
+					} else if (skillid === 1202129169) { //Safe back left
 						Spawnitem(559, 9000, 158,120);
-					} else if (event.skill === 1202128161) { //Safe back left
+					} else if (skillid === 1202128161) { //Safe back left
 						Spawnitem(559, 9000, 158,120);
-					} else if (event.skill === 1202129161) { //Safe back left
+					} else if (skillid === 1202129161) { //Safe back left
 						Spawnitem(559, 9000, 158,120);
-					} else if (event.skill === 1202128164) { //Safe back right
+					} else if (skillid === 1202128164) { //Safe back right
 						Spawnitem(559, 9000, 203,120);
-					} else if (event.skill === 1202129164) { //Safe back right
+					} else if (skillid === 1202129164) { //Safe back right
 						Spawnitem(559, 9000, 203,120);
-					} else if (event.skill === 1202128168) { //Safe back right
+					} else if (skillid === 1202128168) { //Safe back right
 						Spawnitem(559, 9000, 203,120);
-					} else if (event.skill === 1202129168) { //Safe back right
+					} else if (skillid === 1202129168) { //Safe back right
 						Spawnitem(559, 9000, 203,120);
 					}  
 			}

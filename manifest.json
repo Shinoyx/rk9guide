@@ -1,6 +1,6 @@
 {
 	"files": {
-		"index.js": "d24ff03744d56746761680bbf2a0860bbc9dd4aee5b5c1850acddf019026b7c0",
+		"index.js": "566a6fe5825c252dc52a951795db86299f551284fce2bcd69279597e31afce7c",
 		"module.json": "ce983048bdbf0da64cc03d5336490dfe3fa66f90d4a11aae9ea714e66357e919"
 	},
 	
@@ -13,7 +13,7 @@
 		"S_BOSS_GAGE_INFO": 3,
 		"S_DUNGEON_EVENT_MESSAGE": 1,
 		"S_QUEST_BALLOON": 1,
-		"S_ACTION_STAGE": 4,
+		"S_ACTION_STAGE": [4, 7],
 		"S_DESPAWN_COLLECTION": 1,
 		"S_CHAT": 2,
 		"C_ASK_INTERACTIVE": 2,
