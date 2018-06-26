@@ -518,7 +518,7 @@ function rk9guide(dispatch) {
 							sendMessage(FirstBossActionsTank[skillid].msg);
 							}
 						}
-						if(skillid === 1189020957)
+						if(skillid == 1189020957)
 						{
 							setTimeout(function(){
 							sendMessage('JUMP!');
@@ -543,22 +543,22 @@ function rk9guide(dispatch) {
 							sendMessage(ThirdBossActionsTank[skillid].msg);
 							}
 						}
-						if(skillid === 1189020969) {
+						if(skillid == 1189020969) {
 							shieldwarning = setTimeout(function(){
 							sendMessage('SHIELD COMING IN 10SEC');
 							}, 90000);
 						}
 						if(itemhelper && !streamenabled) {
-						if(skillid === 1189020764 || skillid === 1189021764 || skillid === 1189020767 || skillid === 1189021767) {
+						if(skillid == 1189020764 || skillid == 1189021764 || skillid == 1189020767 || skillid == 1189021767) {
 							Spawnitem(556, 3000, 190,200);
 							Spawnitem(556, 3000, 10,200);
-						} else if (skillid === 1189020765 || skillid === 1189021765 || skillid === 1189020766 || skillid === 1189021766) {
+						} else if (skillid == 1189020765 || skillid == 1189021765 || skillid == 1189020766 || skillid == 1189021766) {
 							Spawnitem(556, 3000, 170, 200);
 							Spawnitem(556, 3000, 350, 200);
-						} else if(skillid === 1202127964 || skillid === 1202128964 || skillid === 1202127967 || skillid === 1202128967) {
+						} else if(skillid == 1202127964 || skillid == 1202128964 || skillid == 1202127967 || skillid == 1202128967) {
 							Spawnitem(556, 3000, 190,200);
 							Spawnitem(556, 3000, 10,200);
-						} else if (skillid === 1202127965 || skillid === 1202128965 || skillid === 1202127966 || skillid === 1202128966) {
+						} else if (skillid == 1202127965 || skillid == 1202128965 || skillid == 1202127966 || skillid == 1202128966) {
 							Spawnitem(556, 3000, 170, 200);
 							Spawnitem(556, 3000, 350, 200);
 						}
@@ -575,7 +575,7 @@ function rk9guide(dispatch) {
 						sendMessage(FirstBossActionsTankHM[skillid].msg);
 						}
 					}
-					if(skillid === 1202128157)
+					if(skillid == 1202128157)
 					{
 					setTimeout(function(){
 						sendMessage('JUMP!');
@@ -600,26 +600,26 @@ function rk9guide(dispatch) {
 						sendMessage(ThirdBossActionsTankHM[skillid].msg);
 						}
 					}
-					if(skillid === 1202128169) {
+					if(skillid == 1202128169) {
 						shieldwarning = setTimeout(function(){
 						sendMessage('SHIELD COMING IN 10SEC');
 						}, 105000);
 					}
 					if(itemhelper && !streamenabled) {
-					if(skillid === 1189020764 || skillid === 1189021764 || skillid === 1189020767 || skillid === 1189021767) {
+					if(skillid == 1189020764 || skillid == 1189021764 || skillid == 1189020767 || skillid == 1189021767) {
 						Spawnitem(556, 3000, 190,200);
 						Spawnitem(556, 3000, 10,200);
-					} else if (skillid === 1189020765 || skillid === 1189021765 || skillid === 1189020766 || skillid === 1189021766) {
+					} else if (skillid == 1189020765 || skillid == 1189021765 || skillid == 1189020766 || skillid == 1189021766) {
 						Spawnitem(556, 3000, 170, 200);
 						Spawnitem(556, 3000, 350, 200);
-					} else if(skillid === 1202127964 || skillid === 1202128964 || skillid === 1202127967 || skillid === 1202128967) {
+					} else if(skillid == 1202127964 || skillid == 1202128964 || skillid == 1202127967 || skillid == 1202128967) {
 						Spawnitem(556, 3000, 190,200);
 						Spawnitem(556, 3000, 10,200);
-					} else if (skillid === 1202127965 || skillid === 1202128965 || skillid === 1202127966 || skillid === 1202128966) {
+					} else if (skillid == 1202127965 || skillid == 1202128965 || skillid == 1202127966 || skillid == 1202128966) {
 						Spawnitem(556, 3000, 170, 200);
 						Spawnitem(556, 3000, 350, 200);
 					}
-					if(skillid === 1202128153) {
+					if(skillid == 1202128153) {
 						Spawnitem(603, 7000, 20, 300);
 						Spawnitem(603, 7000, 40, 300);
 						Spawnitem(603, 7000, 60, 300);
@@ -647,7 +647,7 @@ function rk9guide(dispatch) {
 		}
 		} else if (event.stage === 3) {
 			if(whichmode != 0 && whichboss === 3 && itemhelper && !streamenabled) {
-				if(skillid === 1189020764 || skillid === 1189021764 || skillid === 1189020767 || skillid === 1189021767) {
+				if(skillid == 1189020764 || skillid == 1189021764 || skillid == 1189020767 || skillid == 1189021767) {
 					Spawnitem(603, 3000, 190,210);
 					Spawnitem(603, 3000, 190,230);
 					Spawnitem(603, 3000, 190,250);
@@ -668,7 +668,7 @@ function rk9guide(dispatch) {
 					Spawnitem(603, 3000, 40,230);
 					Spawnitem(603, 3000, 50,240);
 					Spawnitem(603, 3000, 60,250);
-				} else if (skillid === 1189020765 || skillid === 1189021765 || skillid === 1189020766 || skillid === 1189021766) {
+				} else if (skillid == 1189020765 || skillid == 1189021765 || skillid == 1189020766 || skillid == 1189021766) {
 					Spawnitem(603, 3000, 170, 210);
 					Spawnitem(603, 3000, 170, 230);
 					Spawnitem(603, 3000, 170, 250);
@@ -689,7 +689,7 @@ function rk9guide(dispatch) {
 					Spawnitem(603, 3000, 320, 230);
 					Spawnitem(603, 3000, 310, 240);
 					Spawnitem(603, 3000, 300, 250);
-				} else if(skillid === 1202127964 || skillid === 1202128964 || skillid === 1202127967 || skillid === 1202128967) {
+				} else if(skillid == 1202127964 || skillid == 1202128964 || skillid == 1202127967 || skillid == 1202128967) {
 					Spawnitem(603, 3000, 190,210);
 					Spawnitem(603, 3000, 190,230);
 					Spawnitem(603, 3000, 190,250);
@@ -710,7 +710,7 @@ function rk9guide(dispatch) {
 					Spawnitem(603, 3000, 40,230);
 					Spawnitem(603, 3000, 50,240);
 					Spawnitem(603, 3000, 60,250);
-				} else if (skillid === 1202127965 || skillid === 1202128965 || skillid === 1202127966 || skillid === 1202128966) {
+				} else if (skillid == 1202127965 || skillid == 1202128965 || skillid == 1202127966 || skillid == 1202128966) {
 					Spawnitem(603, 3000, 170, 210);
 					Spawnitem(603, 3000, 170, 230);
 					Spawnitem(603, 3000, 170, 250);
@@ -735,71 +735,71 @@ function rk9guide(dispatch) {
 			}
 		} else if (event.stage === 1) {
 			if(whichmode === 2 && whichboss === 1 && itemhelper && !streamenabled) {
-					if(skillid === 1202128167) { //Safe front right
+					if(skillid == 1202128167) { //Safe front right
 						Spawnitem(559, 9000, 338,120);
-					} else if (skillid === 1202128163) { //Safe front right														
+					} else if (skillid == 1202128163) { //Safe front right														
 						Spawnitem(559, 9000, 338,120);
-					} else if (skillid === 1202129167) { //Safe front right
+					} else if (skillid == 1202129167) { //Safe front right
 						Spawnitem(559, 9000, 338,120);
-					} else if (skillid === 1202129163) { //Safe front right
+					} else if (skillid == 1202129163) { //Safe front right
 						Spawnitem(559, 9000, 338,120);
-					} else if (skillid === 1202128174) { //Safe front left
+					} else if (skillid == 1202128174) { //Safe front left
 						Spawnitem(559, 9000, 23,120);
-					} else if (skillid === 1202128162) { //Safe front left
+					} else if (skillid == 1202128162) { //Safe front left
 						Spawnitem(559, 9000, 23,120);
-					} else if (skillid === 1202129174) { //Safe front left
+					} else if (skillid == 1202129174) { //Safe front left
 						Spawnitem(559, 9000, 23,120);
-					} else if (skillid === 1202129162) { //Safe front left
+					} else if (skillid == 1202129162) { //Safe front left
 						Spawnitem(559, 9000, 23,120);
-					} else if (skillid === 1202128172) { //Safe right back
+					} else if (skillid == 1202128172) { //Safe right back
 						Spawnitem(559, 9000, 248,120);
-					} else if (skillid === 1202129172) { //Safe right back
+					} else if (skillid == 1202129172) { //Safe right back
 						Spawnitem(559, 9000, 248,120);
-					} else if (skillid === 1202128160) { //Safe right back
+					} else if (skillid == 1202128160) { //Safe right back
 						Spawnitem(559, 9000, 248,120);
-					} else if (skillid === 1202129160) { //Safe right back
+					} else if (skillid == 1202129160) { //Safe right back
 						Spawnitem(559, 9000, 248,120);
-					} else if (skillid === 1202128159) { //Safe right front
+					} else if (skillid == 1202128159) { //Safe right front
 						Spawnitem(559, 9000, 293,120);
-					} else if (skillid === 1202129159) { //Safe right front
+					} else if (skillid == 1202129159) { //Safe right front
 						Spawnitem(559, 9000, 293,120);
-					} else if (skillid === 1202128171) { //Safe right front
+					} else if (skillid == 1202128171) { //Safe right front
 						Spawnitem(559, 9000, 293,120);
-					} else if (skillid === 1202129171) { //Safe right front
+					} else if (skillid == 1202129171) { //Safe right front
 						Spawnitem(559, 9000, 293,120);
-					} else if (skillid === 1202128173) { //Safe left back
+					} else if (skillid == 1202128173) { //Safe left back
 						Spawnitem(559, 9000, 113,120);
-					} else if (skillid === 1202129173) { //Safe left back
+					} else if (skillid == 1202129173) { //Safe left back
 						Spawnitem(559, 9000, 113,120);
-					} else if (skillid === 1202128165) { //Safe left back
+					} else if (skillid == 1202128165) { //Safe left back
 						Spawnitem(559, 9000, 113,120);
-					} else if (skillid === 1202129165) { //Safe left back
+					} else if (skillid == 1202129165) { //Safe left back
 						Spawnitem(559, 9000, 113,120);
-					} else if (skillid === 1202128166) { //Safe left front
+					} else if (skillid == 1202128166) { //Safe left front
 						Spawnitem(559, 9000, 68,120);
-					} else if (skillid === 1202129166) { //Safe left front
+					} else if (skillid == 1202129166) { //Safe left front
 						Spawnitem(559, 9000, 68,120);	
-					} else if (skillid === 1202128170) { //Safe left front
+					} else if (skillid == 1202128170) { //Safe left front
 						Spawnitem(559, 9000, 68,120);
-					} else if (skillid === 1202129170) { //Safe left front
+					} else if (skillid == 1202129170) { //Safe left front
 						Spawnitem(559, 9000, 68,120);	
-					} else if (skillid === 1202128169) { //Safe back left
+					} else if (skillid == 1202128169) { //Safe back left
 						Spawnitem(559, 9000, 158,120);
-					} else if (skillid === 1202129169) { //Safe back left
+					} else if (skillid == 1202129169) { //Safe back left
 						Spawnitem(559, 9000, 158,120);
-					} else if (skillid === 1202128161) { //Safe back left
+					} else if (skillid == 1202128161) { //Safe back left
 						Spawnitem(559, 9000, 158,120);
-					} else if (skillid === 1202129161) { //Safe back left
+					} else if (skillid == 1202129161) { //Safe back left
 						Spawnitem(559, 9000, 158,120);
-					} else if (skillid === 1202128164) { //Safe back right
+					} else if (skillid == 1202128164) { //Safe back right
 						Spawnitem(559, 9000, 203,120);
-					} else if (skillid === 1202129164) { //Safe back right
+					} else if (skillid == 1202129164) { //Safe back right
 						Spawnitem(559, 9000, 203,120);
-					} else if (skillid === 1202128168) { //Safe back right
+					} else if (skillid == 1202128168) { //Safe back right
 						Spawnitem(559, 9000, 203,120);
-					} else if (skillid === 1202129168) { //Safe back right
+					} else if (skillid == 1202129168) { //Safe back right
 						Spawnitem(559, 9000, 203,120);
-					}  
+					}
 			}
 			}
 		 }
