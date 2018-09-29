@@ -320,7 +320,7 @@ function rk9guide(dispatch) {
 		}
 	});*/
 	
-	dispatch.hook('S_SPAWN_NPC', 8, (event) => {
+	dispatch.hook('S_SPAWN_NPC', 9, (event) => {
 		if(!enabled) return;
 		if(!itemhelper || streamenabled) return;
 		if(insidemap && insidezone) {
@@ -406,7 +406,7 @@ function rk9guide(dispatch) {
 		} else insidezone = false;
 		})
 	 
-	 	dispatch.hook('S_DUNGEON_EVENT_MESSAGE', 1, (event) => {	
+	 	dispatch.hook('S_DUNGEON_EVENT_MESSAGE', 2, (event) => {	
 		if (!enabled || whichboss === 0) return;
 		let msgId = parseInt(event.message.replace('@dungeon:', ''));
 		if(msgId === 9935311) { //STANDARD
@@ -493,7 +493,7 @@ function rk9guide(dispatch) {
 		return;
 	 });
 	 
-	 dispatch.hook('S_ACTION_STAGE', dispatch.base.majorPatchVersion < 74 ? 4 : 7, (event) => {								// DO NOT EDIT IF UN-SURE
+	 dispatch.hook('S_ACTION_STAGE', 7, (event) => {								// DO NOT EDIT IF UN-SURE
 		 if(!enabled) return;																								// Main script for calling out attacks
 		 if(insidezone && insidemap) {
 			bossCurLocation = {x: event.loc.x,y: event.loc.y,z: event.loc.z,w: event.w};
@@ -967,9 +967,8 @@ function rk9guide(dispatch) {
 	}
 	
 	function Despawn(uid){
-	dispatch.toClient('S_DESPAWN_COLLECTION', 1, {
-			uid : uid,
-			unk : 0
+	dispatch.toClient('S_DESPAWN_COLLECTION', 2, {
+			gameId : uid,
 		});
 	}
 	
