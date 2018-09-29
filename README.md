@@ -6,7 +6,7 @@ I will apologize in advanced as I don't think I will be releasing guide mod for 
  3) I think it would be fair to players who wish to run without guide to get high scores instead of players with guide winning over them.
 
 However, I will be releasing dungeon guides on my youtube channel so feel free to take a look!
-https://www.youtube.com/watch?v=XG2mx9usHsc&t=3s
+https://www.tinyurl.com/Shinoyx
 
 Donations:
 [![paypal](https://www.paypalobjects.com/en_GB/SG/i/btn/btn_paynowCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JW3A7NS4W7BRY)
