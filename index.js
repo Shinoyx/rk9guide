@@ -158,7 +158,6 @@ function rk9guide(dispatch) {
 		bosshp,
 		model,
 		zone,
-		location,
 		mode,
 		dungeonmsg,
 		job = -1,
@@ -294,10 +293,6 @@ function rk9guide(dispatch) {
 		command.message('Itemhelper: ' + itemhelper);
 		command.message('KR: ' + kr);
 	});
-	
-	dispatch.hook('C_PLAYER_LOCATION', 3, (event) => {
-        location = event;
-    });
 	
 	// NEED MORE TESTING 
 	// FOR WARRIOR / ZERK TANK MODE
