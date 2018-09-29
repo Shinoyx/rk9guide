@@ -968,7 +968,7 @@ function rk9guide(dispatch) {
 	
 	function Despawn(uid){
 	dispatch.toClient('S_DESPAWN_COLLECTION', 2, {
-			gameId : uid,
+			gameId : uid
 		});
 	}
 	
