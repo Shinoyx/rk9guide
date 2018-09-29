@@ -68,7 +68,7 @@ Only usable in the RK9 Map. Using of commands outside map will return undefined 
 
 # Known bugs / Issues
 <details>
-    
+    Some wrong call outs ? Haven't been playing recently to test this dungeon. Rk9 is a pretty dead dungeon anyway.
 </details>
 
 # Patch Notes
@@ -126,5 +126,8 @@ Only usable in the RK9 Map. Using of commands outside map will return undefined 
 
     v1.17
     - Fixed last boss wrong call outs
+
+    v1.18
+    - Updated for v75
 
 </details>
