@@ -1,7 +1,7 @@
 /* SCRIPT BY SHINO */
 /* Usable Sysbols ◎●←↑→↓↖↗↘↙ */
 
-const Command = require('command');
+//const Command = require('command');
 const Vec3 = require('tera-vec3');
 const mapID = [9735, 9935];						// MAP ID to input [ Normal Mode , Hard Mode ]
 const HuntingZn = [735, 935]; 					// Add in your own Hunting Zone [ Normal Mode , Hard Mode ] 
@@ -143,7 +143,7 @@ module.exports = function rk9guidewrap(dispatch) {
 	
 	
 function rk9guide(dispatch) {
-	const command = Command(dispatch);
+	//const command = Command(dispatch);
 	let firstskill = 0,
 		secondskill = 0,
 		tempskill = 0,
@@ -158,6 +158,7 @@ function rk9guide(dispatch) {
 		bosshp,
 		model,
 		zone,
+		location,
 		mode,
 		dungeonmsg,
 		job = -1,
@@ -185,14 +186,14 @@ function rk9guide(dispatch) {
 			whichmode = 1; //1 = NM
 			dungeonmode();
 			initialize();
-			command.message('<br> Welcome to RK-9 Normal Mode <br> Type !help for more info <br>');
+			dispatch.command.message('<br> Welcome to RK-9 Normal Mode <br> Type !help for more info <br>');
 			return;
 			} else if (zone === mapID[1]) {
 			insidemap = true;
 			whichmode = 2; //2 = HM
 			dungeonmode();
 			initialize();
-			command.message('<br> Welcome to RK-9 Hard Mode <br> Type !help for more info <br>');
+			dispatch.command.message('<br> Welcome to RK-9 Hard Mode <br> Type !help for more info <br>');
 			return;
 			} else insidemap = false;
     });
@@ -211,88 +212,92 @@ function rk9guide(dispatch) {
 			whichmode = 1; //1 = NM
 			dungeonmode();
 			initialize();
-			command.message('<br> Welcome to RK-9 Normal Mode <br> Type !help for more info <br>');
+			dispatch.command.message('<br> Welcome to RK-9 Normal Mode <br> Type !help for more info <br>');
 			return;
 			} else if (zone === mapID[1]) {
 			insidemap = true;
 			whichmode = 2; //2 = HM
 			dungeonmode();
 			initialize();
-			command.message('<br> Welcome to RK-9 Hard Mode <br> Type !help for more info <br>');
+			dispatch.command.message('<br> Welcome to RK-9 Hard Mode <br> Type !help for more info <br>');
 			return;
 			} else insidemap = false;
 		}, 15000);
 	});
 	
-	//For Inputting commands, Toggle functions ETC 
-	command.add('rk9', () => {
-		if(!insidemap) { command.message('You must be inside RK-9'); return; }
+	//For Inputting dispatch.commands, Toggle functions ETC 
+	dispatch.command.add('rk9', () => {
+		if(!insidemap) { dispatch.command.message('You must be inside RK-9'); return; }
 		enabled = !enabled;
-		command.message('RK-9 Guide '+(enabled ? 'Enabled' : 'Disabled') + '.');
+		dispatch.command.message('RK-9 Guide '+(enabled ? 'Enabled' : 'Disabled') + '.');
 	});
 	
-	command.add('party', () => {
-		if(!insidemap) { command.message('You must be inside RK-9'); return; }
+	dispatch.command.add('party', () => {
+		if(!insidemap) { dispatch.command.message('You must be inside RK-9'); return; }
 		sendToParty = !sendToParty;
-		command.message((sendToParty ? 'Messages will be sent to the party' : 'Only you will see messages'));
+		dispatch.command.message((sendToParty ? 'Messages will be sent to the party' : 'Only you will see messages'));
 	});
 	
-	command.add('stream', () => {
-		if(!insidemap) { command.message('You must be inside RK-9'); return; }
+	dispatch.command.add('stream', () => {
+		if(!insidemap) { dispatch.command.message('You must be inside RK-9'); return; }
 		streamenabled = !streamenabled;
-		command.message((streamenabled ? 'Stream mode Enabled' : 'Stream mode Disabled'));
+		dispatch.command.message((streamenabled ? 'Stream mode Enabled' : 'Stream mode Disabled'));
 	});
 	
-	command.add('lastbosstoparty', () => {
-		if(!insidemap) { command.message('You must be inside RK-9'); return; }
+	dispatch.command.add('lastbosstoparty', () => {
+		if(!insidemap) { dispatch.command.message('You must be inside RK-9'); return; }
 		lastbosstoparty = !lastbosstoparty;
-		command.message((lastbosstoparty ? 'Messages will be sent to the party' : 'Only you will see messages'));
+		dispatch.command.message((lastbosstoparty ? 'Messages will be sent to the party' : 'Only you will see messages'));
 	});
 	
-	command.add('itemhelper', () => {
-		if(!insidemap) { command.message('You must be inside RK-9'); return; }
+	dispatch.command.add('itemhelper', () => {
+		if(!insidemap) { dispatch.command.message('You must be inside RK-9'); return; }
 		itemhelper = !itemhelper;
-		command.message('Item helper spawn ' + (itemhelper ? 'Enabled' : 'Disabled') + '.');
+		dispatch.command.message('Item helper spawn ' + (itemhelper ? 'Enabled' : 'Disabled') + '.');
 	});
 	
-	command.add('tank', () => {
-		if(!insidemap) { command.message('You must be inside RK-9'); return; }
+	dispatch.command.add('tank', () => {
+		if(!insidemap) { dispatch.command.message('You must be inside RK-9'); return; }
 		isTank = !isTank;
-		command.message('Tank Mode ' + (isTank ? 'Enabled' : 'Disabled') + '.');
+		dispatch.command.message('Tank Mode ' + (isTank ? 'Enabled' : 'Disabled') + '.');
 	});
 	
-	command.add('info', () => {
-		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message(mode);
-		command.message('RK9 Guide: ' + enabled);
-		command.message('Party Notice: ' + sendToParty);
-		command.message('Lastboss to party notice: ' + lastbosstoparty);
-		command.message('Item helper: ' + itemhelper);
-		command.message('Tank Mode: ' + isTank);
-		command.message('Stream mode: ' + streamenabled);
+	dispatch.command.add('info', () => {
+		if(!insidemap) { dispatch.command.message('You must be inside RK-9'); return; }
+		dispatch.command.message(mode);
+		dispatch.command.message('RK9 Guide: ' + enabled);
+		dispatch.command.message('Party Notice: ' + sendToParty);
+		dispatch.command.message('Lastboss to party notice: ' + lastbosstoparty);
+		dispatch.command.message('Item helper: ' + itemhelper);
+		dispatch.command.message('Tank Mode: ' + isTank);
+		dispatch.command.message('Stream mode: ' + streamenabled);
 	});
 	
-	command.add('help', () => {
-		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message('!rk9 to toggle module');
-		command.message('!party to toggle party call outs');
-		command.message('!lastbosstoparty to toggle lastboss protocol callouts');
-		command.message('!itemhelper to toggle item spawn on ground');
-		command.message('!info to show which module is Enabled or Disabled');
-		command.message('!tank to manually toggle Tank Mode');
-		command.message('!stream to toggle stream mode');
+	dispatch.command.add('help', () => {
+		if(!insidemap) { dispatch.command.message('You must be inside RK-9'); return; }
+		dispatch.command.message('!rk9 to toggle module');
+		dispatch.command.message('!party to toggle party call outs');
+		dispatch.command.message('!lastbosstoparty to toggle lastboss protocol callouts');
+		dispatch.command.message('!itemhelper to toggle item spawn on ground');
+		dispatch.command.message('!info to show which module is Enabled or Disabled');
+		dispatch.command.message('!tank to manually toggle Tank Mode');
+		dispatch.command.message('!stream to toggle stream mode');
 	});
 	
-	command.add('debug', () => {
-		if(!insidemap) { command.message('You must be inside RK-9'); return; }
-		command.message('InsideZone: ' + insidezone);
-		command.message('InsideMap: ' + insidemap);
-		command.message('Whichmode: ' + whichmode);
-		command.message('WhichBoss: ' + whichboss);
-		command.message('IsInv: ' + isInv);
-		command.message('Itemhelper: ' + itemhelper);
-		command.message('KR: ' + kr);
+	dispatch.command.add('debug', () => {
+		if(!insidemap) { dispatch.command.message('You must be inside RK-9'); return; }
+		dispatch.command.message('InsideZone: ' + insidezone);
+		dispatch.command.message('InsideMap: ' + insidemap);
+		dispatch.command.message('Whichmode: ' + whichmode);
+		dispatch.command.message('WhichBoss: ' + whichboss);
+		dispatch.command.message('IsInv: ' + isInv);
+		dispatch.command.message('Itemhelper: ' + itemhelper);
+		dispatch.command.message('KR: ' + kr);
 	});
+	
+	dispatch.hook('C_PLAYER_LOCATION', 3, (event) => {
+        location = event;
+    });
 	
 	// NEED MORE TESTING 
 	// FOR WARRIOR / ZERK TANK MODE
@@ -301,7 +306,7 @@ function rk9guide(dispatch) {
 		if(job === 1 || job === 2 || job === 4 || job === 11) {
 		if(event.id === 100200 || event.id === 100202 || event.id === 100203) {
 			isTank = true;
-			command.message('Tank Mode: ' + isTank);
+			dispatch.command.message('Tank Mode: ' + isTank);
 		}
 		}
 	});
@@ -310,12 +315,12 @@ function rk9guide(dispatch) {
 		if(job === 1 || job === 2 || job === 4 || job === 11) {
 		if(event.id === 100200 || event.id === 100202 || event.id === 100203) {
 			isTank = false;
-			command.message('Tank Mode: ' + isTank);
+			dispatch.command.message('Tank Mode: ' + isTank);
 		}
 		}
 	});*/
 	
-	dispatch.hook('S_SPAWN_NPC', 9, (event) => {
+	dispatch.hook('S_SPAWN_NPC', 10, (event) => {
 		if(!enabled) return;
 		if(!itemhelper || streamenabled) return;
 		if(insidemap && insidezone) {
@@ -418,17 +423,17 @@ function rk9guide(dispatch) {
 			firstskill = 'OUT';
 			tempskill = 'OUT';
 			checklastboss = false;
-			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 3000); }
+			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '근' });}, 3000); }
 		} else if (msgId === 9935303) {
 			firstskill = 'IN';
 			tempskill = 'IN';
 			checklastboss = false;
-			if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 3000); }
+			if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '원' });}, 3000); }
 		} else if (msgId === 9935304) {
 			firstskill = 'WAVE';
 			tempskill = 'WAVE';
 			checklastboss = false;
-			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'WAVE' });}, 3000); }
+			if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '전' });}, 3000); }
 		}
 	})
 	
@@ -443,21 +448,21 @@ function rk9guide(dispatch) {
 					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
-					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 8000); }
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '근' });}, 8000); }
 				} else if(dungeonmsg === 935302) {
 					firstskill = 'IN';
 					tempskill = 'IN';
 					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
-					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 8000); }
+					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '원' });}, 8000); }
 				} else if(dungeonmsg === 935303) {
 					firstskill = 'WAVE';
 					tempskill = 'WAVE';
 					sendMessage(firstskill + ' + ' + secondskill);
 					secondskill = tempskill;
 					firstskill = 0;
-					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'WAVE' });}, 8000); }
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '전' });}, 8000); }
 				}	
 			} else if ( secondskill === 0 ) { //STANDARD
 				if(dungeonmsg === 935301) {
@@ -466,21 +471,21 @@ function rk9guide(dispatch) {
 					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
-					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'OUT' });}, 8000); }
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '근' });}, 8000); }
 				} else if(dungeonmsg === 935302) {
 					secondskill = 'IN';
 					tempskill = 'IN';
 					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
-					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'IN' });}, 8000); }
+					if(lastbosstoparty) { setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '원' });}, 8000); }
 				} else if(dungeonmsg === 935303) {
 					secondskill = 'WAVE';
 					tempskill = 'WAVE';
 					sendMessage(firstskill + ' + ' + secondskill);
 					firstskill = tempskill;
 					secondskill = 0;
-					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: 'WAVE' });}, 8000); }
+					if(lastbosstoparty) {setTimeout(function(){dispatch.toServer('C_CHAT', 1, {channel: 21, message: '전' });}, 8000); }
 				}
 			}
 			return;
@@ -488,7 +493,7 @@ function rk9guide(dispatch) {
 		return;
 	 });
 	 
-	 dispatch.hook('S_ACTION_STAGE', 7, (event) => {								// DO NOT EDIT IF UN-SURE
+	 dispatch.hook('S_ACTION_STAGE', 8, (event) => {								// DO NOT EDIT IF UN-SURE
 		 if(!enabled) return;																								// Main script for calling out attacks
 		 if(insidezone && insidemap) {
 			bossCurLocation = {x: event.loc.x,y: event.loc.y,z: event.loc.z,w: event.w};
@@ -807,7 +812,7 @@ function rk9guide(dispatch) {
 				message: msg
 			});
 		} else if(streamenabled) {
-			command.message(msg);
+			dispatch.command.message(msg);
 		} else {
 			dispatch.toClient('S_CHAT', 2, {
 				channel: 21, //21 = p-notice, 1 = party
@@ -963,8 +968,7 @@ function rk9guide(dispatch) {
 	
 	function Despawn(uid){
 	dispatch.toClient('S_DESPAWN_COLLECTION', 2, {
-			gameId : uid,
-			collected : false
+			gameId : uid
 		});
 	}
 	
