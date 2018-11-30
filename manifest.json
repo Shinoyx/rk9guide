@@ -1,14 +1,14 @@
 {
 	"files": {
 		"index.js": "2525002bba492b7118802f1ee9a85a17b80e8d1571ec8b33eec688cddfecd96f",
-		"module.json": "4e5f834000c5bde27cb43ba11c25efa0cabdc3310386b0c377a4fc941c742d98"
+		"module.json": "ce983048bdbf0da64cc03d5336490dfe3fa66f90d4a11aae9ea714e66357e919"
 	},
 	
 	"defs": {
 		"S_LOAD_TOPO": 3,
 		"S_LOGIN": 10,
 		"C_CHECK_VERSION": 1,
-		"C_PLAYER_LOCATION": 3,
+		"C_PLAYER_LOCATION": 5,
 		"S_SPAWN_NPC": 10,
 		"S_BOSS_GAGE_INFO": 3,
 		"S_DUNGEON_EVENT_MESSAGE": 1,

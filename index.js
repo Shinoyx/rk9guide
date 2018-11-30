@@ -295,7 +295,7 @@ function rk9guide(dispatch) {
 		dispatch.command.message('KR: ' + kr);
 	});
 	
-	dispatch.hook('C_PLAYER_LOCATION', 3, (event) => {
+	dispatch.hook('C_PLAYER_LOCATION', 5, (event) => {
         location = event;
     });
 	
