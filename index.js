@@ -135,7 +135,7 @@ const ThirdBossActionsTankHM = {
 };
 
 module.exports = function rk9guidewrap(dispatch) {
-	if(!dispatch.base.protocolVersion)
+	if(!dispatch.protocolVersion)
         dispatch.hook('C_CHECK_VERSION', 1, (event) => { rk9guide(dispatch); });
     else
         rk9guide(dispatch);
@@ -164,7 +164,7 @@ function rk9guide(dispatch) {
 		job = -1,
 		whichboss = 0,
 		whichmode = 0,
-		kr = null,
+		kr = true,
 		isTank = false,
 		warned = false,
 		checklastboss = true,
@@ -203,7 +203,7 @@ function rk9guide(dispatch) {
 		model = event.templateId;
 		name = event.name;
 		job = model % 100
-		if(kr === null) kr = (dispatch.base.majorPatchVersion < 74) ? false : true;
+		//if(kr === null) kr = (dispatch.base.majorPatchVersion < 74) ? false : true;
 		if (job === 2 || job === 11) isTank = true;				// Check if class = Lancer / Brawler
 		else isTank = false;
 		setTimeout(function(){
@@ -354,7 +354,7 @@ function rk9guide(dispatch) {
 	
 	dispatch.hook('S_BOSS_GAGE_INFO', 3, (event) => {					// DO NOT EDIT IF UN-SURE
 		if (!enabled) return;
-		bosshp = event.curHp / event.maxHp;
+		bosshp = (parseInt(event.curHp) / parseInt(event.maxHp));
 		if(bosshp === 1) {
 			initialize();	
 		}
@@ -974,7 +974,7 @@ function rk9guide(dispatch) {
 	
 	dispatch.hook('S_CHAT', 2, event =>
 	{
-		if(insidezone && insidemap && event.channel === 21 && event.authorID.notEquals(cid))
+		if(insidezone && insidemap && event.channel === 21 && event.authorID != cid)
 		{
 			event.channel = 1
 			return true
